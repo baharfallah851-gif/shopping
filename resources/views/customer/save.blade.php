@@ -32,7 +32,7 @@
         </tr>
         </thead>
         @csrf
-        @foreach($customer as customer)
+        @foreach($customer as $customer)
             <tbody>
             <tr class="table-dark">
                 <td>{{$customer->name}}</td>
