@@ -9,92 +9,107 @@
 </head>
 <body>
 
-<div class="input-group mb-3">
-    @csrf
+<div class="container">
+    <h1>ADD USER</h1>
     @if(\Illuminate\Support\Facades\Session::exists('message'))
         <p>{{\Illuminate\Support\Facades\Session::get('message')}}</p>
     @endif
-    <form method="post" action="{{Route('user.save')}}">
-
+    <form method="post" action="{{route('user.save')}}">
+        @csrf
         <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip01">name : </label>
-                <input class="form-control" placeholder="name">
-            </div><br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" >Person</span>
+                <input type="text" name="name" class="form-control" placeholder="name">
+                <input type="text" name="family" class="form-control" placeholder="family">
+            </div>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">family : </label>
-                <input class="form-control" placeholder="family">
-            </div><br>
-
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">mobile : </label>
-                <input class="form-control" placeholder="mobile">
+            <div class="input-group mb-3">
+                <span class="input-group-text">mobile</span>
+                <input type="text" name="mobile" class="form-control" placeholder="mobile">
             </div><br>
 
             <div class="col-md-2">
-                <label for="validationTooltip02">gender : </label>
+                <label for="validationTooltip02">gender</label>
                 <select name="gender">
-                    <option>mane</option>
-                    <option>woman</option>
+                    <option value="man">man</option>
+                    <option value="woman">woman</option>
                 </select>
             </div><br>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">birth_date : </label>
-                <input type="date" class="form-control" placeholder="birth_date">
+            <div class="input-group mb-3">
+                <span class="input-group-text">birth date</span>
+                <input type="date" name="birth_date" class="form-control" placeholder="birth date">
             </div><br>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">national_code : </label>
-                <input class="form-control" placeholder="national_code">
+            <div class="input-group mb-3">
+                <span class="input-group-text">national code</span>
+                <input type="text" name="national_cade" class="form-control" placeholder="national code">
             </div><br>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">province_id : </label>
-                <input class="form-control" placeholder="province_id">
+            <div class="input-group mb-3">
+                <span class="input-group-text">province</span>
+                <select name="province_id" class="form-control">
+                    @foreach($provinces as $province)
+                        <option value="{{$province->id}}" >{{$province->name}}</option>
+                    @endforeach
+                </select>
             </div><br>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">city_id : </label>
-                <input class="form-control" placeholder="city_id">
+            <div class="input-group mb-3">
+                <span class="input-group-text">city</span>
+                <select name="city_id" class="form-control">
+                    @foreach($cities as $city)
+                        <option value="{{$city->id}}" >{{$city->name}}</option>
+                    @endforeach
+                </select>
             </div><br>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">job : </label>
-                <input class="form-control" placeholder="job">
+            <div class="input-group mb-3">
+                <span class="input-group-text">job</span>
+                <input type="text" name="job" class="form-control" placeholder="job">
             </div><br>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltipUsername">Username</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-                    <div class="invalid-tooltip">
-                        Please choose a unique and valid username.
-                    </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">username</span>
                 </div>
+                <input type="text" name="username" class="form-control" id="validationTooltipUsername" placeholder="Username">
             </div>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">password : </label>
-                <input class="form-control" placeholder="password">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">password</span>
+                <input type="text" name="password" class="form-control" placeholder="password">
             </div><br>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">lat : </label>
-                <input class="form-control" placeholder="lat">
+
+
+
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">email</span>
+                </div>
+                <input type="text" name="email" class="form-control" id="validationTooltipUsername" placeholder="email">
+            </div>
+
+
+
+
+
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">lat</span>
+                <input type="text" name="lat" class="form-control" placeholder="lat">
             </div><br>
 
-            <div class="col-md-4 mb-3">
-                <label for="validationTooltip02">lan : </label>
-                <input class="form-control" placeholder="lan">
+            <div class="input-group mb-3">
+                <span class="input-group-text">lan</span>
+                <input type="text" name="lan" class="form-control" placeholder="lan">
             </div><br>
 
             <button class="btn btn-primary" type="submit" >ADD</button>
-
+        </div>
     </form>
 </div>
 

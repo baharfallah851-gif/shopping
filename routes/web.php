@@ -8,7 +8,7 @@ Route::get('/', function () {
 
 Route::get('customer/add', [\App\Http\Controllers\CustomerController::class, 'add'])->name('customer.add');
 Route::post('customer/save', [\App\Http\Controllers\CustomerController::class, 'save'])->name('customer.save');
-Route::get('customer/list', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
+Route::get('customer', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
 
 Route::get('customer/{customer}' , [\App\Http\Controllers\CustomerController::class , 'show'])->name('customer.show');
 Route::post('customer/update/{customer}', [\App\Http\Controllers\CustomerController::class , 'update'])->name('customer.update');
@@ -21,7 +21,7 @@ Route::get('customer/delete/{customer}' , [\App\Http\Controllers\CustomerControl
 
 Route::get('user/add', [\App\Http\Controllers\UserController::class, 'add'])->name('user.add');
 Route::post('user/save', [\App\Http\Controllers\UserController::class, 'save'])->name('user.save');
-Route::get('user/list', [\App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+Route::get('user', [\App\Http\Controllers\UserController::class, 'index'])->name('user.index');
 
 Route::get('user/{user}' , [\App\Http\Controllers\UserController::class , 'show'])->name('user.show');
 Route::post('user/update/{user}', [\App\Http\Controllers\UserController::class , 'update'])->name('user.update');

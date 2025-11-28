@@ -9,9 +9,8 @@
 </head>
 <body>
 
-<div class="input-group mb-3">
-    <h1>CUSTOMER</h1><br>
-    <h1>ADD</h1><br><br>
+<div class="container">
+    <h1>ADD CUSTOMER</h1><br>
     @if(\Illuminate\Support\Facades\Session::exists('message'))
         <p>{{\Illuminate\Support\Facades\Session::get('message')}}</p>
     @endif
@@ -52,13 +51,21 @@
                 </div><br>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text">province id</span>
-                    <input type="text" name="province_id" class="form-control" placeholder="province id">
+                    <span class="input-group-text">province</span>
+                    <select name="province_id" class="form-control">
+                        @foreach($provinces as $province)
+                            <option value="{{$province->id}}" >{{$province->name}}</option>
+                        @endforeach
+                    </select>
                 </div><br>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text">city id</span>
-                    <input type="text" name="city_id" class="form-control" placeholder="city id">
+                    <span class="input-group-text">city</span>
+                    <select name="city_id" class="form-control">
+                        @foreach($cities as $city)
+                            <option value="{{$city->id}}" >{{$city->name}}</option>
+                        @endforeach
+                    </select>
                 </div><br>
 
                 <div class="input-group mb-3">

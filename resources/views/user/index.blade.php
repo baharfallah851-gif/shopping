@@ -25,14 +25,14 @@
             <th>job</th>
             <th>username</th>
             <th>password</th>
+            <th>email</th>
             <th>lat</th>
             <th>lan</th>
 
             <th>option</th>
         </tr>
         </thead>
-        @csrf
-        @foreach($user as user)
+        @foreach($users as $user)
             <tbody>
             <tr class="table-dark">
                 <td>{{$user->name}}</td>
@@ -46,6 +46,7 @@
                 <td>{{$user->job}}</td>
                 <td>{{$user->username}}</td>
                 <td>{{$user->password}}</td>
+                <td>{{$user->email}}</td>
                 <td>{{$user->lat}}</td>
                 <td>{{$user->lan}}</td>
                 <td>

@@ -1,7 +1,7 @@
 <div>
     <form method="post" action="{{route('customer.update', ['customer'=>$customer])}}">
         @csrf
-        <input name="name" placeholder="name" value="{{$customer->nsme}}">
+        <input name="name" placeholder="name" value="{{$customer->name}}">
         <input name="family" placeholder="family" value="{{$customer->family}}">
         <input name="mobile" placeholder="mobile" value="{{$customer->mobile}}">
         <input name="gender" placeholder="gender" value="{{$customer->gender}}">
