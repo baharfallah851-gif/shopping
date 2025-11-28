@@ -1,15 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
-    <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{asset('file/bootstrap.min.css')}}" rel="stylesheet">
     <script src="{{asset('file/bootstrap.bundle.min.js')}}"></script>
 </head>
-
 <body>
-
 <div class="form-floating mb-3 mt-3">
     <table class="table table-striped">
         <thead>
@@ -32,7 +29,7 @@
         </tr>
         </thead>
         @csrf
-        @foreach($customer as $customer)
+        @foreach($customers as $customer)
             <tbody>
             <tr class="table-dark">
                 <td>{{$customer->name}}</td>

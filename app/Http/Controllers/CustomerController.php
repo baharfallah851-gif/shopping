@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 {
     public function index(){
-        $customer = Customer::all();
-        return view('customer.save', compact('customer'));
+        $customers = Customer::all();
+        return view('customer.index', compact('customers'));
     }
 
     public function add(){
@@ -45,9 +45,8 @@ class CustomerController extends Controller
 
     }
 
-
     public function show(Customer $customer){
-        return view('customer.save', compact('customer'));
+        return view('customer.index', compact('customer'));
     }
 
     public function edit(Request $request , Customer $customer){

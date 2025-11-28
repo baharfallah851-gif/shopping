@@ -48,7 +48,7 @@ class UserController extends Controller
 
 
     public function show(user $user){
-        return view('user.save', compact('user'));
+        return view('user.index', compact('user'));
     }
 
     public function edit(Request $request , User $user){
