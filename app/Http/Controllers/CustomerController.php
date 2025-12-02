@@ -46,11 +46,15 @@ class CustomerController extends Controller
     }
 
     public function show(Customer $customer){
-        return view('customer.index', compact('customer'));
+        $cities = City::all();
+        $provinces = Province::all();
+        return view('customer.index', compact('customer','cities','provinces'));
     }
 
     public function edit(Request $request , Customer $customer){
-        return view('customer.update', compact('request', 'customer'));
+        $provinces = Province::all();
+        $cities = City::all();
+        return view('customer.update', compact('request', 'customer','cities','provinces'));
     }
 
     public function update(Request $request , customer $customer){

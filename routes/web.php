@@ -51,7 +51,7 @@ Route::get('product/delete/{product}', [\App\Http\Controllers\ProductController:
 
 
 //address
-Route::get('address',[\App\Http\Controllers\AddressController::class,'add'])->name('address.add');
+Route::get('address/add',[\App\Http\Controllers\AddressController::class,'add'])->name('address.add');
 Route::post('address/save',[\App\Http\Controllers\AddressController::class,'save'])->name('address.save');
 Route::get('address',[\App\Http\Controllers\AddressController::class,'index'])->name('address.index');
 
@@ -60,5 +60,16 @@ Route::post('address/update/{address}', [\App\Http\Controllers\AddressController
 Route::get('address/edit/{address}', [\App\Http\Controllers\AddressController::class , 'edit'])->name('address.edit');
 Route::get('address/delete/{address}', [\App\Http\Controllers\AddressController::class , 'delete'])->name('address.delete');
 
+
+
+
+//brand
+Route::get('brand/add', [\App\Http\Controllers\BrandController::class, 'add'] )->name('brand.add');
+Route::post('brand/save', [\App\Http\Controllers\BrandController::class, 'save'] )->name('brand.save');
+Route::get('brand', [\App\Http\Controllers\BrandController::class, 'index'] )->name('brand.index');
+
+Route::get('brand/{brand}' , [\App\Http\Controllers\BrandController::class , 'show'])->name('brand.show');
+Route::post('brand/update/{brand}', [\App\Http\Controllers\BrandController::class , 'update'])->name('brand.update');
+Route::get('brand/delete/{brand}', [\App\Http\Controllers\BrandController::class , 'delete'])->name('brand.delete');
 
 

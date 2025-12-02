@@ -16,14 +16,16 @@
         <a class="btn btn-outline-info" type="button" href="{{Route('customer.add')}}">ADD CUSTOMER</a><br><br>
         <a class="btn btn-outline-info" type="button" href="{{Route('user.add')}}">ADD USER</a><br><br>
         <a class="btn btn-outline-info" type="button" href="{{Route('product.add')}}">ADD PRODUCT</a><br><br>
+        <a class="btn btn-outline-info" type="button" href="{{Route('brand.index')}}">ADD BRAND</a><br><br>
         <a class="btn btn-outline-light" type="button" href="{{Route('customer.index')}}">show list customer</a><br><br>
         <a class="btn btn-outline-light" type="button" href="{{Route('user.index')}}">show list user</a><br><br>
         <a class="btn btn-outline-light" type="button" href="{{Route('product.index')}}">show list product</a><br><br>
+        <a class="btn btn-outline-light" type="button" href="{{Route('brand.index')}}">show list BRAND</a><br><br>
     </div>
 </div>
 
 <div class="container-fluid mt-3">
-    <h1 class="shadow p-3 mb-2 bg-white">SHOPPING BAHAR</h1>
+    <h1 class="shadow p-3 mb-2 bg-white">BAHAR STORE</h1>
     <p>Product buying and selling site</p>
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
         option list

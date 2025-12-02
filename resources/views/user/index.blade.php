@@ -1,17 +1,10 @@
-<!doctype html>
-<html lang="en" data-bs-theme="dark">
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{asset('file/bootstrap.min.css')}}" rel="stylesheet">
-    <script src="{{asset('file/bootstrap.bundle.min.js')}}"></script>
-</head>
-
-<body>
-
+@extends('layout')
+@section('content')
 <div class="form-floating mb-3 mt-3">
-    <table class="table table-striped">
+    <a class="btn btn-app" href="{{Route('user.add')}}">
+        <i class="fa fa-edit"></i> ADD
+    </a>
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th>name</th>
@@ -24,7 +17,6 @@
             <th>city_id</th>
             <th>job</th>
             <th>username</th>
-            <th>password</th>
             <th>email</th>
             <th>lat</th>
             <th>lan</th>
@@ -34,7 +26,7 @@
         </thead>
         @foreach($users as $user)
             <tbody>
-            <tr class="table-dark">
+            <tr class="table table-striped">
                 <td>{{$user->name}}</td>
                 <td>{{$user->family}}</td>
                 <td>{{$user->mobile}}</td>
@@ -42,16 +34,15 @@
                 <td>{{$user->birth_date}}</td>
                 <td>{{$user->national_code}}</td>
                 <td>{{$user->province_id}}</td>
-                <td>{{$user->ciyt_id}}</td>
+                <td>{{$user->city_id}}</td>
                 <td>{{$user->job}}</td>
                 <td>{{$user->username}}</td>
-                <td>{{$user->password}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->lat}}</td>
                 <td>{{$user->lan}}</td>
                 <td>
-                    <a href="{{Route('user.edit',['user'=>$user])}}">UPDATE</a>
-                    <a href="{{Route('user.delete',['user'=>$user])}}">DELETE</a>
+                    <a href="{{Route('user.edit',['user'=>$user])}}" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
+                    <a href="{{Route('user.delete',['user'=>$user])}}" class="btn btn-danger"><i class="fa fa-trash-o"></i> DELETE</a>
                 </td>
             </tr>
 
@@ -59,6 +50,6 @@
         @endforeach
 
     </table>
-    <a type="button" class="btn btn-outline-info" href="{{Route('user.add')}}">ADD</a>
+
 </div>
-</body>
+@endsection

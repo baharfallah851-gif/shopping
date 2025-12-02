@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class ProductController extends Controller
     }
 
     public function add(){
-        return view('product.add');
+        $brands = Brand::all();
+        return view('product.add',compact('brands'));
     }
 
     public function save(Request $request){
@@ -30,13 +32,9 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
-    public function show(){
-        $product = Product::all();
-        return view('product.index', compact('product'));
-    }
-
     public function edit(Request $request, Product $product){
-        return view('product.update', compact('request','product'));
+        $brands = Brand::all();
+        return view('product.update', compact('request','product','brands'));
     }
 
     public function update(Request $request, Product $product){

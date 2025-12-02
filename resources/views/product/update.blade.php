@@ -1,60 +1,54 @@
-<!doctype html>
-<html lang="en" data-bs-theme="dark">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{asset('file/bootstrap.min.css')}}" rel="stylesheet">
-    <script src="{{asset('file/bootstrap.bundle.min.js')}}"></script>
-</head>
-<body>
-<div class="container">
+@extends('layout')
+@section('content')
     <form method="post" action="{{route('product.update', ['product'=>$product])}}">
         @csrf
-        <h1 class="container mt-5 mb-5">UPDATE PRODUCT</h1>
+        <h1 class=" mt-5 mb-5">UPDATE PRODUCT</h1>
 
-        <div class="form-floating mb-3 mt-3">
-            <input name="title" placeholder="title" id="comment" class="form-control" value="{{$product->title}}">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">title</label>
+            <input name="title" placeholder="title" id="comment" class="form-control" value="{{$product->title}}">
         </div>
 
-        <div class="form-floating mb-3 mt-3">
-            <input name="description" placeholder="description" id="comment" class="form-control" value="{{$product->description}}">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">description</label>
+            <input name="description" placeholder="description" id="comment" class="form-control" value="{{$product->description}}">
         </div>
 
-        <div class="form-floating mb-3 mt-3">
-            <input name="slug" placeholder="slug" id="comment" class="form-control" value="{{$product->slug}}">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">slug</label>
+            <input name="slug" placeholder="slug" id="comment" class="form-control" value="{{$product->slug}}">
         </div>
 
-        <div class="form-floating mb-3 mt-3">
-            <input name="image" placeholder="image" id="comment" class="form-control" value="{{$product->image}}">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">image</label>
+            <input name="image" placeholder="image" id="comment" class="form-control" value="{{$product->image}}">
         </div>
 
-        <div class="form-floating mb-3 mt-3">
-            <input name="brand_id" placeholder="brand id" id="comment" class="form-control" value="{{$product->brand_id}}">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">brand id</label>
+            <select name="brand_id" id="comment" class="form-control">
+                @foreach($brands as $brand)
+                    <option value="{{$brand->id}}" @if($brand->id == $product->brand_id) selected @endif>{{$brand->title}}</option>
+                @endforeach
+            </select>
         </div>
 
-        <div class="form-floating mb-3 mt-3">
-            <input name="unlimited_inventory" placeholder="unlimited inventory" id="comment" class="form-control" value="{{$product->unlimited_inventory}}">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">unlimited inventory</label>
+            <input name="unlimited_inventory" placeholder="unlimited inventory" id="comment" class="form-control" value="{{$product->unlimited_inventory}}">
         </div>
 
-        <div class="form-floating mb-3 mt-3">
-            <input name="max_order" placeholder="max order" id="comment" class="form-control" value="{{$product->max_order}}">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">max order</label>
+            <input name="max_order" placeholder="max order" id="comment" class="form-control" value="{{$product->max_order}}">
         </div>
 
-        <div class="form-floating mb-3 mt-3">
-            <input name="warning_border" placeholder="warning border" id="comment" class="form-control" value="{{$product->warning_border}}">
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">warning border</label>
+            <input name="warning_border" placeholder="warning border" id="comment" class="form-control" value="{{$product->warning_border}}">
         </div>
 
         <button class="btn btn-primary" type="submit" >UPDATE</button>
 
     </form>
-</div>
-</body>
-</html>
+@endsection
