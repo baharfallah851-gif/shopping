@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\city;
 use App\Models\Customer;
 use App\Models\Province;
@@ -20,8 +21,8 @@ class CustomerController extends Controller
         return view('customer.add', compact('provinces' ,'cities'));
     }
     public function save(Request $request){
-        try {
-            Customer::create([
+
+            $customer = Customer::create([
                 'name' => $request->get('name'),
                 'family' => $request->get('family'),
                 'mobile' => $request->get('mobile'),
@@ -36,20 +37,33 @@ class CustomerController extends Controller
                 'lat' => $request->get('lat'),
                 'lan' => $request->get('lan'),
             ]);
+            $postel_codes = $request->get('postel_code');
+            $units = $request->get('unit');
+            $titles = $request->get('title');
+            $addresses = $request->get('address', []);
+            foreach ($addresses as $index => $address){
+                if(! empty($address)) {
+                    Address::create([
+                        'customers_id' => $customer->id,
+                        'address' => $address,
+                        'postel_code' => $postel_codes[$index],
+                        'unit' => $units[$index],
+                        'title' => $titles[$index],
+                    ]);
+                }
+            }
             return redirect(Route('customer.index'));
 
-        }catch (\Exception $exception){
-            $message =  'khata :) ';
-            return redirect(Route('customer.add'))->with('message', $exception->getMessage());
-        }
+
+
 
     }
 
-    public function show(Customer $customer){
-        $cities = City::all();
-        $provinces = Province::all();
-        return view('customer.index', compact('customer','cities','provinces'));
-    }
+    //public function show(Customer $customer){
+       // $cities = City::all();
+       // $provinces = Province::all();
+       // return view('customer.index', compact('customer','cities','provinces'));
+    //}
 
     public function edit(Request $request , Customer $customer){
         $provinces = Province::all();
@@ -57,7 +71,7 @@ class CustomerController extends Controller
         return view('customer.update', compact('request', 'customer','cities','provinces'));
     }
 
-    public function update(Request $request , customer $customer){
+    public function update(Request $request , Customer $customer){
         $customer->name = $request->get('name');
         $customer->family = $request->get('family');
         $customer->mobile = $request->get('mobile');
@@ -72,6 +86,41 @@ class CustomerController extends Controller
         $customer->lat = $request->get('lat');
         $customer->lan = $request->get('lan');
         $customer->update();
+
+        $postel_codes = $request->get('postel_code');
+        $units = $request->get('unit');
+        $titles = $request->get('title');
+        $addresses = $request->get('address', []);
+        $address_ids = $request->get('address_id', []);
+
+        $address_id_in_db = $customer->addresses()->pluck('id')->toArray();
+        $deleted_ids = array_diff($address_id_in_db, $address_ids);
+        foreach ($deleted_ids as $deleted_id){
+            $address = Address::find($deleted_id);
+            $address->delete();
+        }
+
+        foreach ($addresses as $index => $address){
+            if(! empty($address_ids[$index]) && !empty($address)){
+                $old_address = Address::find($address_ids[$index]);
+                $old_address->title = $titles[$index];
+                $old_address->postel_code = $postel_codes[$index];
+                $old_address->unit = $units[$index];
+                $old_address->address = $address;
+                $old_address->update();
+            } else{
+                if(! empty($address)){
+                    Address::create([
+                        'customers_id' => $customer->id,
+                        'address' => $address,
+                        'postel_code' => $postel_codes[$index],
+                        'unit' => $units[$index],
+                        'title' => $titles[$index],
+                    ]);
+                }
+            }
+        }
+
         return redirect(Route('customer.index'));
     }
 
@@ -79,4 +128,27 @@ class CustomerController extends Controller
         $customer->delete();
         return redirect(route('customer.index'));
     }
+/*
+    public  function save_address(Request $request)
+    {
+       Address::create([
+           'address_title' => $request->get('address_title'),
+           'address' => $request->get('address'),
+           'postal_code' => $request->get('postal_code'),
+           'unit' => $request->get('unit'),
+       ]);
+        return redirect(Route('address.index'));
+    }
+
+    public function update_address(Request $request , address $address)
+    {
+        $address->address_title = $request->get('address_title');
+        $address->address = $request->get('address');
+        $postal_code->postal_code = $request->get('postal_code');
+        $unit->unit = $request->get('unit');
+    }*/
 }
+
+
+
+

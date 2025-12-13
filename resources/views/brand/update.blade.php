@@ -7,6 +7,7 @@
             <input name="title" placeholder="title" id="comment" class="form-control" value="{{$brand->title}}">
             <label for="comment">title</label>
         </div>
+        <div class="clearfix"></div>
         <button class="btn btn-primary" type="submit" >UPDATE</button>
     </form>
 @endsection

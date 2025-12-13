@@ -13,8 +13,8 @@
             <th>gender</th>
             <th>birth_date</th>
             <th>national_code</th>
-            <th>province_id</th>
-            <th>city_id</th>
+            <th>province</th>
+            <th>city</th>
             <th>job</th>
             <th>username</th>
             <th>email</th>

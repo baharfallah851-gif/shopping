@@ -13,11 +13,10 @@
             <th>gender</th>
             <th>birth_date</th>
             <th>national_code</th>
-            <th>province_id</th>
-            <th>city_id</th>
+            <th>province</th>
+            <th>city</th>
             <th>job</th>
             <th>username</th>
-            <th>password</th>
             <th>lat</th>
             <th>lan</th>
 
@@ -38,7 +37,6 @@
                 <td>{{$customer->city_id}}</td>
                 <td>{{$customer->job}}</td>
                 <td>{{$customer->username}}</td>
-                <td>{{$customer->password}}</td>
                 <td>{{$customer->lat}}</td>
                 <td>{{$customer->lan}}</td>
                 <td>

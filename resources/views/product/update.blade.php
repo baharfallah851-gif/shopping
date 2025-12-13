@@ -10,8 +10,8 @@
         </div>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <label for="comment">description</label>
-            <input name="description" placeholder="description" id="comment" class="form-control" value="{{$product->description}}">
+            <label for="description">description</label>
+            <input name="description" placeholder="description" id="description" class="form-control" value="{{$product->description}}">
         </div>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -47,7 +47,7 @@
             <label for="comment">warning border</label>
             <input name="warning_border" placeholder="warning border" id="comment" class="form-control" value="{{$product->warning_border}}">
         </div>
-
+        <div class="clearfix"></div>
         <button class="btn btn-primary" type="submit" >UPDATE</button>
 
     </form>

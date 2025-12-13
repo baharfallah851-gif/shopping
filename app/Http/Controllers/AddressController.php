@@ -8,14 +8,11 @@ use Illuminate\Http\Request;
 class AddressController extends Controller
 {
     public function index(){
-        $address = Address::all();
-        return view('address.index', compact('address'));
+        $addresses = Address::all();
+        return view('address.index', compact('addresses'));
     }
 
-    public function add(){
-        return view('address.add');
-    }
-
+    /*
     public function save(Request $request){
         Address::create([
             'customer_id' => $request->get('customer_id'),
@@ -50,5 +47,5 @@ class AddressController extends Controller
     public function delete(Address $address){
         $address->delete();
         return redirect(route('address.index'));
-    }
+    }*/
 }

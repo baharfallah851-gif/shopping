@@ -82,8 +82,76 @@
             <input name="lan" placeholder="lan" id="comment" class="form-control" value="{{$customer->lan}}">
         </div><br>
 
+        <div class="clearfix"></div>
+        <div class="hidden full-address address-tmp">
+            <input name="address_id[]" value="" type="hidden">
 
+            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                <span class="input-group-text">Full address</span>
+                <input name="address[]" class="form-control" placeholder="address" value="{{$customer->address}}">
+            </div>
+            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                <span class="input-group-text">postal code</span>
+                <input name="postel_code[]" class="form-control" placeholder="postel code" value="{{$customer->postel_code}}">
+            </div>
+            <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
+                <span class="input-group-text">unit</span>
+                <input name="unit[]" class="form-control" placeholder="unit" value="{{$customer->unit}}">
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                <span class="input-group-text">Address title</span>
+                <input name="title[]" class="form-control" placeholder="title" value="{{$customer->title}}">
+            </div>
+
+            <div class="center">
+                <button  class="btn btn-success" style="margin-top: 20px" onclick="addAddress();return false">+</button>
+                <button class="btn btn-danger" style="margin-top:20px" onclick="removeAddress(this);return false">_</button>
+            </div>
+        </div>
+
+        <div class="addresses">
+            @foreach($customer->addresses as $address)
+                <div class="address-tmp">
+                    <input name="address_id[]" value="{{$address->id}}" type="hidden">
+                    <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                        <span class="input-group-text">Full address</span>
+                        <input name="address[]" class="form-control" value="{{$address->address}}">
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                        <span class="input-group-text">postel code</span>
+                        <input name="postel_code[]" class="form-control" value="{{$address->postel_code}}">
+                    </div>
+                    <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
+                        <span class="input-group-text">unit</span>
+                        <input name="unit[]" class="form-control" value="{{$address->unit}}">
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                        <span class="input-group-text">Address title</span>
+                        <input name="title[]" class="form-control" value="{{$address->title}}">
+                    </div>
+                    <div class="center">
+                        <button  class="btn btn-success" style="margin-top: 20px" onclick="addAddress();return false">+</button>
+                        @if($loop->index)
+                            <button class="btn btn-danger" style="margin-top:25px" onclick="removeAddress(this);return false">_</button>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="clearfix"></div>
         <button class="btn btn-primary" type="submit">UPDATE</button>
+        </form>
+    <script>
+        function addAddress(){
+            let address = $('.full-address').clone();
+            $(address).removeClass('full-address').removeClass('hidden');
+            $('.addresses').append(address);
+        }
 
-    </form>
+        function removeAddress(el) {
+            $(el).parents('.address-tmp').first().remove();
+        }
+
+    </script>
 @endsection

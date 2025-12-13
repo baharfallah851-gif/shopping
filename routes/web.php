@@ -51,14 +51,13 @@ Route::get('product/delete/{product}', [\App\Http\Controllers\ProductController:
 
 
 //address
-Route::get('address/add',[\App\Http\Controllers\AddressController::class,'add'])->name('address.add');
-Route::post('address/save',[\App\Http\Controllers\AddressController::class,'save'])->name('address.save');
-Route::get('address',[\App\Http\Controllers\AddressController::class,'index'])->name('address.index');
+//Route::post('address/save',[\App\Http\Controllers\AddressController::class,'save'])->name('address.save');
+//Route::get('address',[\App\Http\Controllers\AddressController::class,'index'])->name('address.index');
 
-Route::get('address/{address}' , [\App\Http\Controllers\AddressController::class , 'show'])->name('address.show');
-Route::post('address/update/{address}', [\App\Http\Controllers\AddressController::class , 'update'])->name('address.update');
-Route::get('address/edit/{address}', [\App\Http\Controllers\AddressController::class , 'edit'])->name('address.edit');
-Route::get('address/delete/{address}', [\App\Http\Controllers\AddressController::class , 'delete'])->name('address.delete');
+//Route::get('address/{address}' , [\App\Http\Controllers\AddressController::class , 'show'])->name('address.show');
+//Route::post('address/update/{address}', [\App\Http\Controllers\AddressController::class , 'update'])->name('address.update');
+//Route::get('address/edit/{address}', [\App\Http\Controllers\AddressController::class , 'edit'])->name('address.edit');
+//Route::get('address/delete/{address}', [\App\Http\Controllers\AddressController::class , 'delete'])->name('address.delete');
 
 
 

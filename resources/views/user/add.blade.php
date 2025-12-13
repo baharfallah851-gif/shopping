@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
-    <h1>ADD USER</h1>
     <form method="post" action="{{route('user.save')}}" class="was-validated">
+        <h1>ADD USER</h1>
         @csrf
         <div class="form-row">
             <div class="col-md-4 col-sm-12 col-xs-12 form-group">

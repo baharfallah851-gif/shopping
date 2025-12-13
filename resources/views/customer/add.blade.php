@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
-<h1>ADD CUSTOMER</h1><br>
 <form method="post" action="{{Route('customer.save')}}" class="was-validated">
+    <h1>ADD CUSTOMER</h1><br>
     @csrf
     <div class="form-row">
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -69,6 +69,7 @@
         </div>
 
 
+
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="pwd" class="form-label">Password:</label>
             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
@@ -86,7 +87,72 @@
             <input type="text" name="lan" class="form-control" placeholder="lan" required>
         </div><br>
 
+
+        <div>
+            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                <span class="input-group-text">Full address</span>
+                <input name="address[]" class="form-control" placeholder="address">
+            </div>
+            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                <span class="input-group-text">postal code</span>
+                <input name="postel_code[]" class="form-control" placeholder="postel code">
+            </div>
+            <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
+                <span class="input-group-text">unit</span>
+                <input name="unit[]" class="form-control" placeholder="unit">
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                <span class="input-group-text">Address title</span>
+                <input name="title[]" class="form-control" placeholder="title">
+            </div>
+
+            <div class="center">
+                <button  class="btn btn-success" style="margin-top: 20px" onclick="addAddress();return false">+</button>
+            </div>
+        </div>
+
+        <div class="hidden full-address address-tmp">
+            <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                <span class="input-group-text">Full address</span>
+                <input name="address[]" class="form-control">
+            </div>
+            <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                <span class="input-group-text">postel code</span>
+                <input name="postel_code[]" class="form-control">
+            </div>
+            <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
+                <span class="input-group-text">unit</span>
+                <input name="unit[]" class="form-control">
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                <span class="input-group-text">Address title</span>
+                <input name="title[]" class="form-control">
+            </div>
+
+            <div class="center">
+                <button  class="btn btn-success" style="margin-top: 20px" onclick="addAddress();return false">+</button>
+                <button class="btn btn-danger" style="margin-top:20px" onclick="removeAddress(this);return false">_</button>
+
+            </div>
+        </div>
+
+        <div class="addresses"></div>
+
+        <div class="clearfix"></div>
         <button class="btn btn-primary" type="submit" >ADD</button>
     </div>
 </form>
+
+<script>
+    function addAddress(){
+        let address = $('.full-address').clone();
+        $(address).removeClass('full-address').removeClass('hidden');
+        $('.addresses').append(address);
+    }
+
+    function removeAddress(el) {
+        $(el).parents('.address-tmp').first().remove();
+    }
+
+</script>
 @endsection

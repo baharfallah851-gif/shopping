@@ -28,134 +28,135 @@
 </head>
 <!-- /header content -->
 <body class="nav-md">
-    <div class="container body">
-        <div class="main_container">
-            <div class="col-md-3 left_col hidden-print">
-                <div class="left_col scroll-view">
-                    <div class="navbar nav_title" style="border: 0;">
-                        <a href="{{route('home')}}" class="site_title"><i class="fa fa-paw"></i>
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col hidden-print">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="{{route('home')}}" class="site_title"><i class="fa fa-paw"></i>
                         <span>Gentelella Alela!</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img src="{{asset('build/images/my_image.ico')}}" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span> welcome</span>
+                        <h2>STORE</h2>
+                    </div>
+                </div>
+                <
+                <!-- /menu profile quick info -->
+
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3>ALL</h3>
+                        <ul class="nav side-menu">
+                            <li class=""><a><i class="fa fa-home"></i> HOME <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none;">
+                                    <li><a href="{{route('customer.index')}}"><i class="fa fa-group"></i> CUSTOMER <span
+                                                class="fa fa-chevron"></span></a></li>
+                                    <li><a href="{{route('user.index')}}"><i class="fa fa-user"></i> USER <span
+                                                class="fa fa-chevron"></span></a></li>
+                                    <li><a href="{{route('product.index')}}"><i class="fa fa-archive"></i>PRODUCT<span
+                                                class="fa fa-chevron"></span></a></li>
+                                    {{--<li><a href="{{route('address.index')}}"><i class="fa fa-address-card"></i> ADDRESS <span
+                                                class="fa fa-chevron"></span></a></li>--}}
+                                    <li><a href="{{route('brand.index')}}"><i class="fa fa-tags"></i> BRAND <span
+                                                class="fa fa-chevron"></span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="تنظیمات">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="تمام صفحه" onclick="toggleFullScreen();">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="قفل" class="lock_btn">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="خروج" href="{{route('home')}}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav hidden-print">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                     </div>
 
-                    <div class="clearfix"></div>
-            <!-- menu profile quick info -->
-            <div class="profile clearfix">
-                <div class="profile_pic">
-                    <img src="{{asset('build/images/my_image.ico')}}" alt="..." class="img-circle profile_img">
-                </div>
-                <div class="profile_info">
-                    <span> welcome</span>
-                    <h2>STORE</h2>
-                </div>
-            </div>
-            <
-            <!-- /menu profile quick info -->
-
-            <br/>
-
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                <div class="menu_section">
-                    <h3>ALL</h3>
-                    <ul class="nav side-menu">
-                        <li><a href="{{route('customer.index')}}"><i class="fa fa-group"></i> CUSTOMER <span class="fa fa-chevron"></span></a>
-                        </li>
-                        <li><a href="{{route('user.index')}}"><i class="fa fa-user"></i> USER <span class="fa fa-chevron"></span></a>
-                        </li>
-                        <li><a  href="{{route('product.index')}}"><i class="fa fa-archive"></i>PRODUCT<span class="fa fa-chevron"></span></a>
-                        </li>
-                        <li><a href="{{route('brand.index')}}"><i class="fa fa-tags"></i> BRAND <span class="fa fa-chevron"></span></a>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="left">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="{{asset('build/images/my_image.jpg')}}" alt="">bahar
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="javascript:;"> نمایه</a></li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span class="badge bg-red pull-right">50%</span>
+                                        <span>تنظیمات</span>
+                                    </a>
+                                </li>
+                                <li><a href="javascript:;">کمک</a></li>
+                                <li><a href="{{route('home')}}"><i class="fa fa-sign-out pull-right"></i> HOME</a></li>
+                            </ul>
                         </li>
                     </ul>
-                </div>
+                </nav>
             </div>
-            <!-- /sidebar menu -->
-
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-                <a data-toggle="tooltip" data-placement="top" title="تنظیمات">
-                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                </a>
-                <a data-toggle="tooltip" data-placement="top" title="تمام صفحه" onclick="toggleFullScreen();">
-                    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                </a>
-                <a data-toggle="tooltip" data-placement="top" title="قفل" class="lock_btn">
-                    <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                </a>
-                <a data-toggle="tooltip" data-placement="top" title="خروج" href="{{route('home')}}">
-                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                </a>
-            </div>
-            <!-- /menu footer buttons -->
         </div>
-    </div>
+        <!-- /top navigation -->
+        <!-- /header content -->
 
-    <!-- top navigation -->
-    <div class="top_nav hidden-print">
-        <div class="nav_menu">
-            <nav>
-                <div class="nav toggle">
-                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                </div>
+        <!-- page content -->
 
-                <ul class="nav navbar-nav navbar-left">
-                    <li class="left">
-                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
-                           aria-expanded="false">
-                            <img src="{{asset('build/images/my_image.jpg')}}" alt="">bahar
-                            <span class=" fa fa-angle-down"></span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-usermenu pull-right">
-                            <li><a href="javascript:;"> نمایه</a></li>
-                            <li>
-                                <a href="javascript:;">
-                                    <span class="badge bg-red pull-right">50%</span>
-                                    <span>تنظیمات</span>
-                                </a>
-                            </li>
-                            <li><a href="javascript:;">کمک</a></li>
-                            <li><a href="{{route('home')}}"><i class="fa fa-sign-out pull-right"></i> HOME</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <!-- /top navigation -->
-    <!-- /header content -->
+        <div class="right_col" role="main">
 
-    <!-- page content -->
 
-    <div class="right_col" role="main">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="جست و جو برای...">
-            <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">برو!</button>
-            </span>
+            @yield('content')
         </div>
 
-        @yield('content')
-    </div>
 
-
-    <!-- /page content -->
+        <!-- /page content -->
     </div>
-    </div>
-    <div id="lock_screen">
-        <table>
-            <tr>
-                <td>
-                    <div class="clock"></div>
-                    <span class="unlock">
+</div>
+<div id="lock_screen">
+    <table>
+        <tr>
+            <td>
+                <div class="clock"></div>
+                <span class="unlock">
                         <span class="fa-stack fa-5x">
                           <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
                           <i id="icon_lock" class="fa fa-lock fa-stack-1x fa-inverse"></i>
                         </span>
                     </span>
-                </td>
-            </tr>
-        </table>
-    </div>
+            </td>
+        </tr>
+    </table>
+</div>
 
 <!-- jQuery -->
 <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>

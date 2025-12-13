@@ -84,7 +84,7 @@
                 <input name="lan" placeholder="lan" id="comment" class="form-control" value="{{$user->lan}}">
             </div>
 
-
+            <div class="clearfix"></div>
             <button class="btn btn-primary" type="submit" >UPDATE</button>
 
         </form>
