@@ -11,8 +11,8 @@
             <th>family</th>
             <th>mobile</th>
             <th>gender</th>
-            <th>birth_date</th>
-            <th>national_code</th>
+            <th>birth date</th>
+            <th>national code</th>
             <th>province</th>
             <th>city</th>
             <th>job</th>

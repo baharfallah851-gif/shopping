@@ -11,8 +11,8 @@
             <th>family</th>
             <th>mobile</th>
             <th>gender</th>
-            <th>birth_date</th>
-            <th>national_code</th>
+            <th>birth date</th>
+            <th>national code</th>
             <th>province</th>
             <th>city</th>
             <th>job</th>
@@ -42,6 +42,7 @@
                 <td>
                     <a href="{{Route('customer.edit',['customer'=>$customer])}}" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
                     <a href="{{Route('customer.delete',['customer'=>$customer])}}" class="btn btn-danger"><i class="fa fa-trash-o"></i> DELETE</a>
+                    <a > </a>
                 </td>
             </tr>
 

@@ -33,8 +33,8 @@
         </div><br>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <span class="input-group-text">national_cade</span>
-            <input type="text" name="national_cade" class="form-control" placeholder="national_cade" required>
+            <span class="input-group-text">national cade</span>
+            <input type="text" name="national_code" class="form-control" placeholder="national_code" required>
         </div><br>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">

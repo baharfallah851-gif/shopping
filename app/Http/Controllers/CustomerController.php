@@ -88,19 +88,19 @@ class CustomerController extends Controller
         $customer->update();
 
         $postel_codes = $request->get('postel_code');
-        $units = $request->get('unit');
-        $titles = $request->get('title');
+        $units = $request->get('unit', []);
+        $titles = $request->get('title', []);
         $addresses = $request->get('address', []);
         $address_ids = $request->get('address_id', []);
 
-        $address_id_in_db = $customer->addresses()->pluck('id')->toArray();
-        $deleted_ids = array_diff($address_id_in_db, $address_ids);
+        $address_id_in_db = $customer->addresses()->pluck('id')->toArray();   //از مدل کاستومر میاد
+        $deleted_ids = array_diff($address_id_in_db, $address_ids);              //حذف ادرس
         foreach ($deleted_ids as $deleted_id){
             $address = Address::find($deleted_id);
             $address->delete();
         }
 
-        foreach ($addresses as $index => $address){
+        foreach ($addresses as $index => $address){          //تغییر ادرس
             if(! empty($address_ids[$index]) && !empty($address)){
                 $old_address = Address::find($address_ids[$index]);
                 $old_address->title = $titles[$index];
@@ -108,7 +108,7 @@ class CustomerController extends Controller
                 $old_address->unit = $units[$index];
                 $old_address->address = $address;
                 $old_address->update();
-            } else{
+            } else{                              //اضافه کردن ادرس جدید
                 if(! empty($address)){
                     Address::create([
                         'customers_id' => $customer->id,

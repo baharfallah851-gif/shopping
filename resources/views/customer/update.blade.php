@@ -88,19 +88,19 @@
 
             <div class="col-md-5 col-sm-12 col-xs-12 form-group">
                 <span class="input-group-text">Full address</span>
-                <input name="address[]" class="form-control" placeholder="address" value="{{$customer->address}}">
+                <input name="address[]" class="form-control" placeholder="address">
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                 <span class="input-group-text">postal code</span>
-                <input name="postel_code[]" class="form-control" placeholder="postel code" value="{{$customer->postel_code}}">
+                <input name="postel_code[]" class="form-control" placeholder="postel code">
             </div>
             <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
                 <span class="input-group-text">unit</span>
-                <input name="unit[]" class="form-control" placeholder="unit" value="{{$customer->unit}}">
+                <input name="unit[]" class="form-control" placeholder="unit">
             </div>
             <div class="col-md-3 col-sm-12 col-xs-12 form-group">
                 <span class="input-group-text">Address title</span>
-                <input name="title[]" class="form-control" placeholder="title" value="{{$customer->title}}">
+                <input name="title[]" class="form-control" placeholder="title">
             </div>
 
             <div class="center">
@@ -109,6 +109,32 @@
             </div>
         </div>
 
+        @if(!$customer->addresses()->count())
+            <div class=" address-tmp">
+                <input name="address_id[]" value="" type="hidden">
+
+                <div class="col-md-5 col-sm-12 col-xs-12 form-group">
+                    <span class="input-group-text">Full address</span>
+                    <input name="address[]" class="form-control" placeholder="address">
+                </div>
+                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                    <span class="input-group-text">postal code</span>
+                    <input name="postel_code[]" class="form-control" placeholder="postel code" >
+                </div>
+                <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
+                    <span class="input-group-text">unit</span>
+                    <input name="unit[]" class="form-control" placeholder="unit" >
+                </div>
+                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                    <span class="input-group-text">Address title</span>
+                    <input name="title[]" class="form-control" placeholder="title">
+                </div>
+
+                <div class="center">
+                    <button  class="btn btn-success" style="margin-top: 20px" onclick="addAddress();return false">+</button>
+                </div>
+            </div>
+        @endif
         <div class="addresses">
             @foreach($customer->addresses as $address)
                 <div class="address-tmp">
