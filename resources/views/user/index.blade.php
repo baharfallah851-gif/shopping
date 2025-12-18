@@ -7,21 +7,21 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>name</th>
-            <th>family</th>
-            <th>mobile</th>
-            <th>gender</th>
-            <th>birth date</th>
-            <th>national code</th>
-            <th>province</th>
-            <th>city</th>
-            <th>job</th>
-            <th>username</th>
-            <th>email</th>
-            <th>lat</th>
-            <th>lan</th>
+            <th class="text-center">name</th>
+            <th class="text-center">family</th>
+            <th class="text-center">mobile</th>
+            <th class="text-center">gender</th>
+            <th class="text-center">birth date</th>
+            <th class="text-center">national code</th>
+            <th class="text-center">province</th>
+            <th class="text-center">city</th>
+            <th class="text-center">job</th>
+            <th class="text-center">username</th>
+            <th class="text-center">email</th>
+            <th class="text-center">lat</th>
+            <th class="text-center">lan</th>
 
-            <th>option</th>
+            <th class="text-center">option</th>
         </tr>
         </thead>
         @foreach($users as $user)
@@ -33,8 +33,8 @@
                 <td>{{$user->gender}}</td>
                 <td>{{$user->birth_date}}</td>
                 <td>{{$user->national_code}}</td>
-                <td>{{$user->province_id}}</td>
-                <td>{{$user->city_id}}</td>
+                <td>{{$user->province?->name}}</td>
+                <td>{{$user->city?->name}}</td>
                 <td>{{$user->job}}</td>
                 <td>{{$user->username}}</td>
                 <td>{{$user->email}}</td>

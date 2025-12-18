@@ -23,7 +23,7 @@ class BrandController extends Controller
         return redirect(route('brand.index'));
     }
 
-    public function show(Brand $brand){
+    public function edit(Brand $brand){
         return view('brand.update',compact('brand'));
     }
 

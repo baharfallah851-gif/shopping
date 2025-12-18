@@ -6,16 +6,16 @@
     </a>
     <table class="table table-bordered">
         <tr>
-            <th>title</th>
-            <th>description</th>
-            <th>slug</th>
-            <th>image</th>
-            <th>brand id</th>
-            <th>unlimited inventory</th>
-            <th>max order</th>
-            <th>warning border</th>
+            <th class="text-center">title</th>
+            <th class="text-center">description</th>
+            <th class="text-center">slug</th>
+            <th class="text-center">image</th>
+            <th class="text-center">brand</th>
+            <th class="text-center">unlimited inventory</th>
+            <th class="text-center">max order</th>
+            <th class="text-center">warning border</th>
 
-            <th>option</th>
+            <th class="text-center">option</th>
         </tr>
         @foreach($products as $product)
             <tr class="table table-striped">
@@ -23,7 +23,7 @@
                 <td>{{$product->description}}</td>
                 <td>{{$product->slug}}</td>
                 <td>{{$product->image}}</td>
-                <td>{{$product->brand_id}}</td>
+                <td>{{$product->brand?->title}}</td>
                 <td>{{$product->unlimited_inventory}}</td>
                 <td>{{$product->max_order}}</td>
                 <td>{{$product->warning_border}}</td>

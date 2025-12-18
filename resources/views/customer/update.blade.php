@@ -92,7 +92,7 @@
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                 <span class="input-group-text">postal code</span>
-                <input name="postel_code[]" class="form-control" placeholder="postel code">
+                <input name="postal_code[]" class="form-control" placeholder="postal code">
             </div>
             <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
                 <span class="input-group-text">unit</span>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                     <span class="input-group-text">postal code</span>
-                    <input name="postel_code[]" class="form-control" placeholder="postel code" >
+                    <input name="postal_code[]" class="form-control" placeholder="postal code" >
                 </div>
                 <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
                     <span class="input-group-text">unit</span>
@@ -144,8 +144,8 @@
                         <input name="address[]" class="form-control" value="{{$address->address}}">
                     </div>
                     <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                        <span class="input-group-text">postel code</span>
-                        <input name="postel_code[]" class="form-control" value="{{$address->postel_code}}">
+                        <span class="input-group-text">postal code</span>
+                        <input name="postal_code[]" class="form-control" value="{{$address->postal_code}}">
                     </div>
                     <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
                         <span class="input-group-text">unit</span>

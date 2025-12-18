@@ -37,16 +37,16 @@ class CustomerController extends Controller
                 'lat' => $request->get('lat'),
                 'lan' => $request->get('lan'),
             ]);
-            $postel_codes = $request->get('postel_code');
+            $postal_codes = $request->get('postal_code');
             $units = $request->get('unit');
             $titles = $request->get('title');
             $addresses = $request->get('address', []);
             foreach ($addresses as $index => $address){
                 if(! empty($address)) {
                     Address::create([
-                        'customers_id' => $customer->id,
+                        'customer_id' => $customer->id,
                         'address' => $address,
-                        'postel_code' => $postel_codes[$index],
+                        'postal_code' => $postal_codes[$index],
                         'unit' => $units[$index],
                         'title' => $titles[$index],
                     ]);
@@ -87,7 +87,7 @@ class CustomerController extends Controller
         $customer->lan = $request->get('lan');
         $customer->update();
 
-        $postel_codes = $request->get('postel_code');
+        $postal_codes = $request->get('postal_code');
         $units = $request->get('unit', []);
         $titles = $request->get('title', []);
         $addresses = $request->get('address', []);
@@ -104,16 +104,16 @@ class CustomerController extends Controller
             if(! empty($address_ids[$index]) && !empty($address)){
                 $old_address = Address::find($address_ids[$index]);
                 $old_address->title = $titles[$index];
-                $old_address->postel_code = $postel_codes[$index];
+                $old_address->postal_code = $postal_codes[$index];
                 $old_address->unit = $units[$index];
                 $old_address->address = $address;
                 $old_address->update();
             } else{                              //اضافه کردن ادرس جدید
                 if(! empty($address)){
                     Address::create([
-                        'customers_id' => $customer->id,
+                        'customer_id' => $customer->id,
                         'address' => $address,
-                        'postel_code' => $postel_codes[$index],
+                        'postal_code' => $postal_codes[$index],
                         'unit' => $units[$index],
                         'title' => $titles[$index],
                     ]);

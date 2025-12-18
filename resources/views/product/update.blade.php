@@ -21,11 +21,11 @@
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">image</label>
-            <input name="image" placeholder="image" id="comment" class="form-control" value="{{$product->image}}">
+            <input type="file" name="image" placeholder="image" id="comment" class="form-control" value="{{$product->image}}">
         </div>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <label for="comment">brand id</label>
+            <label for="comment">brand</label>
             <select name="brand_id" id="comment" class="form-control">
                 @foreach($brands as $brand)
                     <option value="{{$brand->id}}" @if($brand->id == $product->brand_id) selected @endif>{{$brand->title}}</option>

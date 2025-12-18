@@ -32,9 +32,9 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
-    public function edit(Request $request, Product $product){
+    public function edit( Product $product){
         $brands = Brand::all();
-        return view('product.update', compact('request','product','brands'));
+        return view('product.update', compact('product','brands'));
     }
 
     public function update(Request $request, Product $product){
@@ -52,7 +52,7 @@ class ProductController extends Controller
 
     public function delete(Product $product){
         $product->delete();
-        return redirect()->route('product.index');
+        return redirect(route('product.index'));
     }
 
 }

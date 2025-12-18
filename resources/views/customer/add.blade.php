@@ -33,7 +33,7 @@
         </div><br>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <span class="input-group-text">national cade</span>
+            <span class="input-group-text">national code</span>
             <input type="text" name="national_code" class="form-control" placeholder="national_code" required>
         </div><br>
 
@@ -65,7 +65,6 @@
             <label for="uname" class="form-label">Username:</label>
             <input type="text" class="form-control" id="uname" placeholder="Enter username" name="username" required>
             <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
         </div>
 
 
@@ -74,7 +73,6 @@
             <label for="pwd" class="form-label">Password:</label>
             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
             <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
         </div><br>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -95,7 +93,7 @@
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12 form-group">
                 <span class="input-group-text">postal code</span>
-                <input name="postel_code[]" class="form-control" placeholder="postel code">
+                <input name="postal_code[]" class="form-control" placeholder="postal code">
             </div>
             <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
                 <span class="input-group-text">unit</span>
@@ -117,8 +115,8 @@
                 <input name="address[]" class="form-control">
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                <span class="input-group-text">postel code</span>
-                <input name="postel_code[]" class="form-control">
+                <span class="input-group-text">postal code</span>
+                <input name="postal_code[]" class="form-control">
             </div>
             <div class="col-md-1 col-sm-12 col-xs-12 form-group" >
                 <span class="input-group-text">unit</span>

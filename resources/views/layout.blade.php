@@ -34,7 +34,7 @@
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
                     <a href="{{route('home')}}" class="site_title"><i class="fa fa-paw"></i>
-                        <span>Gentelella Alela!</span></a>
+                        <span>!MY STOR</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -68,7 +68,13 @@
                                                 class="fa fa-chevron"></span></a></li>
                                     {{--<li><a href="{{route('address.index')}}"><i class="fa fa-address-card"></i> ADDRESS <span
                                                 class="fa fa-chevron"></span></a></li>--}}
-                                    <li><a href="{{route('brand.index')}}"><i class="fa fa-tags"></i> BRAND <span
+                                    <li><a href="{{route('brand.index')}}"><i class="fa fa-braille"></i> BRAND <span
+                                                class="fa fa-chevron"></span></a></li>
+                                    <li><a href="{{route('ticket.index')}}"><i class="fa fa-tags"></i> TICKET <span
+                                                class="fa fa-chevron"></span></a></li>
+                                    <li><a href="{{route('type.index')}}"><i class="fa fa-opera"></i> TYPE <span
+                                                class="fa fa-chevron"></span></a></li>
+                                    <li><a href="{{route('category.index')}}"><i class="fa fa-plus-square-o"></i> CATEGORY <span
                                                 class="fa fa-chevron"></span></a></li>
                                 </ul>
                             </li>
@@ -203,6 +209,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="{{asset('build/js/custom.min.js')}}"></script>
+
 
 </body>
 </html>

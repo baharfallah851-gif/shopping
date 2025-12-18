@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
         <form method="post" action="{{route('user.update', ['user'=>$user])}}">
-            <h1 class="container mt-5 mb-5">UPDATE CUSTOMER</h1>
+            <h1 class="container mt-5 mb-5">UPDATE USER</h1>
             @csrf
             <div class="col-md-4 col-sm-12 col-xs-12 form-group">
                 <label for="comment">name</label>

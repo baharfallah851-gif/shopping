@@ -20,7 +20,7 @@
         </div><br>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <span class="input-group-text">brand id</span>
+            <span class="input-group-text">brand</span>
             <select name="brand_id" class="form-control" required>
                 @foreach($brands as $brand)
                     <option value="{{$brand->id}}" >{{$brand->title}}</option>
@@ -30,7 +30,9 @@
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <span class="input-group-text">unlimited inventory</span>
-            <input type="text" name="unlimited_inventory" class="form-control" placeholder="unlimited inventory" required>
+            <select type="text" name="unlimited_inventory" class="form-control" required>
+                <option
+            </select>
         </div><br>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">

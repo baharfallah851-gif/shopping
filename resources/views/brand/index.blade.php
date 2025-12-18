@@ -12,7 +12,7 @@
                 <td>{{$brand->title}}</td>
 
                 <td>
-                    <a href="{{Route('brand.show',['brand'=>$brand])}}" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
+                    <a href="{{Route('brand.edit',['brand'=>$brand])}}" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
                     <a href="{{Route('brand.delete',['brand'=>$brand])}}" class="btn btn-danger"><i class="fa fa-trash-o"></i> DELETE</a>
                 </td>
             </tr>
