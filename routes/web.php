@@ -101,6 +101,6 @@ Route::get('address/add/{customer}',[\App\Http\Controllers\AddressController::cl
 Route::post('address/save/{customer}',[\App\Http\Controllers\AddressController::class, 'save'])->name('address.save');
 Route::get('address/{customer}', [\App\Http\Controllers\AddressController::class, 'index'])->name('address.index');
 
-Route::get('address/{address}' , [\App\Http\Controllers\AddressController::class , 'edit'])->name('address.edit');
+Route::get('address/{customer}/{address}' , [\App\Http\Controllers\AddressController::class , 'edit'])->name('address.edit');
 Route::post('address/update/{address}', [\App\Http\Controllers\AddressController::class , 'update'])->name('address.update');
 Route::delete('address/delete/{address}', [\App\Http\Controllers\AddressController::class , 'delete'])->name('address.delete');

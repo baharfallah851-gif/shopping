@@ -1,5 +1,5 @@
 <div class="">
-    <form method="post" action="{{route('address.update',['address'=>$address, 'customer'=>$customer])}}">
+    <form method="post" id="update-address-form" action="{{route('address.update',['customer'=>$customer, 'address' => $address])}}">
         @csrf
         <div class="form-row">
             <div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -29,7 +29,7 @@
             </div>
 
             <div class="clearfix"></div>
-            <button class="btn btn-primary" type="submit" >UPDATE</button>
+            <button class="btn btn-primary" id="update-address-btn" onclick="updateAddress(this); return false" href="{{route('address.index', ['customer' => $customer])}}" type="submit" >UPDATE</button>
         </div>
     </form>
 </div>

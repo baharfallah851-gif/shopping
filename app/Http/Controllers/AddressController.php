@@ -32,8 +32,8 @@ class AddressController extends Controller
         ];
     }
 
-    public function edit(Request $request , Address $address){
-        return view('address.update', compact('request', 'address'));
+    public function edit(Request $request , Customer $customer, Address $address){
+        return view('address.update', compact('request', 'address', 'customer'));
     }
 
     public function update(Request $request , Address $address){

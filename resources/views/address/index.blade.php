@@ -24,7 +24,7 @@
                 <td class="text-center">{{$address->title}}</td>
 
                 <td class="text-center">
-                    <a href="{{Route('address.edit',['address'=>$address])}}" onclick="updateAddress(this);return false" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
+                    <a href="{{Route('address.edit',['customer' => $customer,'address'=>$address])}}" onclick="showAddress(this);return false" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
                     <a href="{{Route('address.delete',['address'=>$address])}}" onclick="deleteAddress(this);return false" class="btn btn-danger"><i class="fa fa-trash-o"></i> DELETE</a>
                 </td>
             </tr>
@@ -53,42 +53,6 @@
 </div>
 
 
-<div id="myModal2" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <div class="modal-body">
-                <p></p>
-            </div>
-
-            <div class="modal-footer">
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div id="myModal3" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <div class="modal-body">
-                <p></p>
-            </div>
-
-            <div class="modal-footer">
-
-            </div>
-        </div>
-    </div>
-</div>
 
 <script>
     function addAddress(el){
@@ -97,7 +61,18 @@
             method: 'GET',
             success: function (result) {
                 $('.modal-body').html(result);
-                $('#myModal1').modal('toggle')
+                $('#myModal1').modal('toggle')   //مدل رو باز و بسته میکنه
+            }
+        })
+    }
+
+    function showAddress(el){
+        $.ajax({
+            url: $(el).attr('href'),
+            method: 'GET',
+            success: function (result) {
+                $('.modal-body').html(result);
+                $('#myModal1').modal('toggle')   //مدل رو باز و بسته میکنه
             }
         })
     }
@@ -121,11 +96,17 @@
 
     function updateAddress(el){
         $.ajax({
-            url: $(el).attr('href'),
-            method: 'GET',
-            success: function (result) {
-                $('.modal-body').html(result);
-                $('#myModal2').modal('toggle')
+            url: $('#update-address-form').attr('action'),
+            method: 'post',
+            data: $('#update-address-form').serializeArray(),
+            success(data, textStatus, jqXHR) {
+                $.ajax({
+                    url: $('#update-address-btn').attr('href'),
+                    method:'GET',
+                    success: function (result) {
+                            $('.modal-body').html(result);
+                    }
+                })
             }
         })
     }
