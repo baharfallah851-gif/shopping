@@ -27,21 +27,22 @@
         @foreach($customers as $customer)
             <tbody>
             <tr class="table table-striped">
-                <td>{{$customer->name}}</td>
-                <td>{{$customer->family}}</td>
-                <td>{{$customer->mobile}}</td>
-                <td>{{$customer->gender}}</td>
-                <td>{{$customer->birth_date}}</td>
-                <td>{{$customer->national_code}}</td>
-                <td>{{$customer->province->name}}</td>
-                <td>{{$customer->city->name}}</td>
-                <td>{{$customer->job}}</td>
-                <td>{{$customer->username}}</td>
-                <td>{{$customer->lat}}</td>
-                <td>{{$customer->lan}}</td>
-                <td>
+                <td class="text-center">{{$customer->name}}</td>
+                <td class="text-center">{{$customer->family}}</td>
+                <td class="text-center">{{$customer->mobile}}</td>
+                <td class="text-center">{{$customer->gender}}</td>
+                <td class="text-center">{{$customer->birth_date}}</td>
+                <td class="text-center">{{$customer->national_code}}</td>
+                <td class="text-center">{{$customer->province->name}}</td>
+                <td class="text-center">{{$customer->city->name}}</td>
+                <td class="text-center">{{$customer->job}}</td>
+                <td class="text-center">{{$customer->username}}</td>
+                <td class="text-center">{{$customer->lat}}</td>
+                <td class="text-center">{{$customer->lan}}</td>
+                <td class="text-center">
                     <a href="{{Route('customer.edit',['customer'=>$customer])}}" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
                     <a href="{{Route('customer.delete',['customer'=>$customer])}}" class="btn btn-danger"><i class="fa fa-trash-o"></i> DELETE</a>
+                    <a href="{{Route('address.index',['customer'=>$customer])}}" class="btn btn-success" onclick="openModel(this);return false"><i class="fa fa-plus"></i> ADDRESS</a>
                     <a > </a>
                 </td>
             </tr>
@@ -50,5 +51,47 @@
         @endforeach
 
     </table>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">ADDRESS</h4>
+                </div>
+
+                <div class="modal-body">
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function openModel(el){
+        $.ajax({
+            url: $(el).attr('href'),
+            method: 'GET',
+            success: function (result) {
+                $('.modal-body').html(result);
+                $('#myModal').modal('toggle')
+            },
+
+        {{-- error: function () {
+                alert('error')
+            }--}}
+        })
+    }
+</script>
 
 @endsection

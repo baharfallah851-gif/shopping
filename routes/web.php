@@ -93,3 +93,14 @@ Route::get('category/{category}' , [\App\Http\Controllers\CategoryController::cl
 Route::post('category/update/{category}', [\App\Http\Controllers\CategoryController::class , 'update'])->name('category.update');
 Route::get('category/delete/{category}', [\App\Http\Controllers\CategoryController::class , 'delete'])->name('category.delete');
 
+
+
+
+//address
+Route::get('address/add/{customer}',[\App\Http\Controllers\AddressController::class, 'add'])->name('address.add');
+Route::post('address/save/{customer}',[\App\Http\Controllers\AddressController::class, 'save'])->name('address.save');
+Route::get('address/{customer}', [\App\Http\Controllers\AddressController::class, 'index'])->name('address.index');
+
+Route::get('address/{address}' , [\App\Http\Controllers\AddressController::class , 'edit'])->name('address.edit');
+Route::post('address/update/{address}', [\App\Http\Controllers\AddressController::class , 'update'])->name('address.update');
+Route::delete('address/delete/{address}', [\App\Http\Controllers\AddressController::class , 'delete'])->name('address.delete');

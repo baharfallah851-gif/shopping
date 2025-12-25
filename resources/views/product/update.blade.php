@@ -9,10 +9,6 @@
             <input name="title" placeholder="title" id="comment" class="form-control" value="{{$product->title}}">
         </div>
 
-        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <label for="description">description</label>
-            <input name="description" placeholder="description" id="description" class="form-control" value="{{$product->description}}">
-        </div>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">slug</label>
@@ -33,10 +29,6 @@
             </select>
         </div>
 
-        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <label for="comment">unlimited inventory</label>
-            <input name="unlimited_inventory" placeholder="unlimited inventory" id="comment" class="form-control" value="{{$product->unlimited_inventory}}">
-        </div>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">max order</label>
@@ -47,6 +39,18 @@
             <label for="comment">warning border</label>
             <input name="warning_border" placeholder="warning border" id="comment" class="form-control" value="{{$product->warning_border}}">
         </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <label for="description">description</label>
+            <textarea name="description" placeholder="description" id="description" class="form-control">{{$product->description}}</textarea>
+        </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+            <label for="comment" style="margin: 30px">unlimited inventory</label>
+            <input name="unlimited_inventory" type="checkbox" value="1" id="comment" class="form-check-input" @if($product->unlimited_inventory)checked @endif>
+        </div>
+
+
         <div class="clearfix"></div>
         <button class="btn btn-primary" type="submit" >UPDATE</button>
 

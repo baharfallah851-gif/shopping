@@ -31,6 +31,7 @@ class TicketController extends Controller
             'send_message' => $request->get('send_message',0),
             'description' =>$request->get('description'),
         ]);
+
         return redirect(route('ticket.index'));
     }
 

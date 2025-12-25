@@ -25,7 +25,7 @@ class ProductController extends Controller
             'slug' => $request -> get('slug'),
             'image' => $request -> get('image'),
             'brand_id' => $request -> get('brand_id'),
-            'unlimited_inventory' => $request -> get('unlimited_inventory'),
+            'unlimited_inventory' => $request -> get('unlimited_inventory',0),
             'max_order' => $request -> get('max_order'),
             'warning_border' => $request -> get('warning_border'),
         ]);
@@ -43,7 +43,7 @@ class ProductController extends Controller
         $product ->slug = $request-> get('slug');
         $product -> image = $request-> get('image');
         $product -> brand_id = $request-> get('brand_id');
-        $product -> unlimited_inventory = $request-> get('unlimited_inventory');
+        $product -> unlimited_inventory = $request-> get('unlimited_inventory',0);
         $product -> max_order = $request-> get('max_order');
         $product -> warning_border = $request-> get('warning_border');
         $product->update();

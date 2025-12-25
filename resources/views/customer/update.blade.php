@@ -32,13 +32,13 @@
         </div><br>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <label for="comment">national_cade</label>
+            <label for="comment">national code</label>
             <input name="national_code" placeholder="national_code" id="comment" class="form-control"
                    value="{{$customer->national_code}}">
         </div>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <label for="comment">province id</label>
+            <label for="comment">province</label>
             <select name="province_id" id="comment" class="form-control" >
                 @foreach($provinces as $province)
                     <option value="{{$province->id}}" @if($province->id == $customer->province_id) selected @endif> {{$province->name}}</option>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <label for="comment">city id</label>
+            <label for="comment">city</label>
             <select name="city_id" id="comment" class="form-control">
                 @foreach($cities as $city)
                     <option value="{{$city->id}}" @if($city->id == $customer->city_id) selected @endif> {{$city->name}} </option>
@@ -72,6 +72,7 @@
                    value="{{$customer->password}}">
         </div>
 
+        <div class="clearfix"></div>
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
             <label for="comment">lat</label>
             <input name="lat" placeholder="lat" id="comment" class="form-control" value="{{$customer->lat}}">

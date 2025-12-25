@@ -25,10 +25,10 @@
                     <td class="text-center">{{$ticket->title}}</td>
                     <td class="text-center">{{$ticket->type?->title}}</td>
                     <td class="text-center">{{$ticket->category?->title}}</td>
-                    <td class="text-center">{{$ticket->priority}}</td>
-                    <td class="text-center">{{$ticket->status}}</td>
+                    <td class="text-center">@if($ticket->priority == 1) ️⬆️up @elseif($ticket->priority == 2) ↔️middle @else ⬇️down @endif</td>
+                    <td class="text-center">@if($ticket->status == 1) ⛔closed @else ❗pending response @endif</td>
                     <td class="text-center">{{$ticket->description}}</td>
-                    <td class="text-center">{{$ticket->send_message}}</td>
+                    <td class="text-center">@if($ticket->send_message == 1) yes @else no @endif</td>
 
                     <td class="text-center">
                         <a href="{{route('ticket.edit',['ticket'=>$ticket])}}" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>

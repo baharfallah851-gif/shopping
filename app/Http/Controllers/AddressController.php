@@ -3,30 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
-    public function index(){
-        $addresses = Address::all();
-        return view('address.index', compact('addresses'));
+
+    public function add(Customer $customer)
+    {
+       return view('address.add', compact('customer'));
+    }
+    public function index(Customer $customer){
+        $addresses = $customer->addresses;
+        return view('address.index', compact('addresses', 'customer'));
     }
 
-    /*
-    public function save(Request $request){
+
+    public function save(Request $request, Customer $customer){
         Address::create([
-            'customer_id' => $request->get('customer_id'),
+            'customer_id' => $customer->id,
             'address' => $request->get('address'),
-            'postcode_code' => $request->get('postcode_code'),
+            'postal_code' => $request->get('postal_code'),
             'unit' => $request->get('unit'),
             'title' => $request->get('title'),
         ]);
-        return redirect(Route('address.index'));
-    }
-
-
-    public function show(Address $address){
-        return view('address.index', compact('address'));
+        return [
+            'success' => true,
+        ];
     }
 
     public function edit(Request $request , Address $address){
@@ -36,16 +39,20 @@ class AddressController extends Controller
     public function update(Request $request , Address $address){
         $address->customer_id = $request->get('customer_id');
         $address->address = $request->get('address');
-        $address->postel_code = $request->get('postel_code');
+        $address->postal_code = $request->get('postal_code');
         $address->unit = $request->get('unit');
         $address->title = $request->get('title');
 
         $address->update();
-        return redirect(Route('address.index'));
+        return [
+            'success' => true,
+        ];
     }
 
     public function delete(Address $address){
         $address->delete();
-        return redirect(route('address.index'));
-    }*/
+        return [
+            'success' => true,
+        ];
+    }
 }

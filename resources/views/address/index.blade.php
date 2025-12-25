@@ -1,0 +1,151 @@
+<div class="form-floating mb-3 mt-3">
+    <input type="hidden" name="customer_id" value="{{$customer->id}}">
+    <a class="btn btn-app" href="{{Route('address.add',['customer'=>$customer])}}" onclick="addAddress(this);return false">
+        <i class="fa fa-edit"></i> ADD
+    </a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th class="text-center">address</th>
+            <th class="text-center">postal code</th>
+            <th class="text-center">unit</th>
+            <th class="text-center">title</th>
+
+            <th class="text-center">option</th>
+        </tr>
+        </thead>
+        @csrf
+        @foreach($addresses as $address)
+            <tbody>
+            <tr>
+                <td class="text-center">{{$address->address}}</td>
+                <td class="text-center">{{$address->postal_code}}</td>
+                <td class="text-center">{{$address->unit}}</td>
+                <td class="text-center">{{$address->title}}</td>
+
+                <td class="text-center">
+                    <a href="{{Route('address.edit',['address'=>$address])}}" onclick="updateAddress(this);return false" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
+                    <a href="{{Route('address.delete',['address'=>$address])}}" onclick="deleteAddress(this);return false" class="btn btn-danger"><i class="fa fa-trash-o"></i> DELETE</a>
+                </td>
+            </tr>
+            </tbody>
+        @endforeach
+    </table>
+</div>
+
+<div id="myModal1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ADD ADDRESS </h4>
+            </div>
+
+            <div class="modal-body">
+                <p></p>
+            </div>
+
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <p></p>
+            </div>
+
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <p></p>
+            </div>
+
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addAddress(el){
+        $.ajax({
+            url: $(el).attr('href'),
+            method: 'GET',
+            success: function (result) {
+                $('.modal-body').html(result);
+                $('#myModal1').modal('toggle')
+            }
+        })
+    }
+
+    function saveAddress(){
+        $.ajax({
+            url: $('#save-address-form').attr('action'),
+            method: 'post',
+            data: $('#save-address-form').serializeArray(),  //اطلاعات فرم رو به صورت سریالایز برمیگردونه
+            success(data, textStatus, jqXHR) {
+                $.ajax({
+                    url: $('#save-address-btn').attr('href'),
+                    method: 'GET',
+                    success: function (result) {
+                        $('.modal-body').html(result);
+                    },
+                })
+            }
+        })
+    }
+
+    function updateAddress(el){
+        $.ajax({
+            url: $(el).attr('href'),
+            method: 'GET',
+            success: function (result) {
+                $('.modal-body').html(result);
+                $('#myModal2').modal('toggle')
+            }
+        })
+    }
+
+    function deleteAddress(el){
+        $.ajax({
+            url: $(el).attr('href'),
+            method: 'DELETE',
+            data: {
+                _token: '{{csrf_token()}}'
+            },
+            success: function (result) {
+                $.ajax({
+                    url: '{{route('address.index', ['customer'=>$customer])}}',
+                    success: function(result){
+                        $('.modal-body').html(result);
+                    }
+                })
+            }
+        })
+    }
+</script>
+

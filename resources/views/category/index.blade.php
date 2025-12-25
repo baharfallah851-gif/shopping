@@ -17,7 +17,7 @@
             @csrf
             @foreach($categories as $category)
                 <tr>
-                    <td class="text-center">{{$category->type_id}}</td>
+                    <td class="text-center">{{$category->type?->title}}</td>
                     <td class="text-center">{{$category->title}}</td>
                     <td class="text-center">
                         <a href="{{route('category.edit',['category'=>$category])}}" class="btn btn-info"><i class="fa fa-pencil"></i>UPDATE </a>

@@ -19,15 +19,15 @@
         </tr>
         @foreach($products as $product)
             <tr class="table table-striped">
-                <td>{{$product->title}}</td>
-                <td>{{$product->description}}</td>
-                <td>{{$product->slug}}</td>
-                <td>{{$product->image}}</td>
-                <td>{{$product->brand?->title}}</td>
-                <td>{{$product->unlimited_inventory}}</td>
-                <td>{{$product->max_order}}</td>
-                <td>{{$product->warning_border}}</td>
-                <td>
+                <td class="text-center">{{$product->title}}</td>
+                <td class="text-center">{{$product->description}}</td>
+                <td class="text-center">{{$product->slug}}</td>
+                <td class="text-center">{{$product->image}}</td>
+                <td class="text-center">{{$product->brand?->title}}</td>
+                <td class="text-center"> @if($product->unlimited_inventory == 1) yes @else no @endif</td>
+                <td class="text-center">{{$product->max_order}}</td>
+                <td class="text-center">{{$product->warning_border}}</td>
+                <td class="text-center">
                     <a href="{{Route('product.edit',['product'=>$product])}}" class="btn btn-info"><i class="fa fa-pencil"></i>UPDATE</a>
                     <a href="{{Route('product.delete',['product'=>$product])}}" class="btn btn-danger"><i class="fa fa-trash-o"></i> DELETE</a>
                 </td>

@@ -4,7 +4,7 @@
         <h1>ADD CATEGORY</h1>
         @csrf
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <span class="input-group-text" >type</span>
+            <label class="input-group-text" >type</label>
             <select type="text" name="type_id" class="form-control">
                 @foreach($types as $type)
                     <option value="{{$type->id}}">{{$type->title}}</option>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="col-md-4 col-sm-12 col-xs-12 form-group">
-            <span class="input-group-text" >title</span>
+            <label class="input-group-text" >title</label>
             <input type="text" name="title" class="form-control" placeholder="title" required>
         </div>
 
