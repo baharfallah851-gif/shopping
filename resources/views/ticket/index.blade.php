@@ -32,7 +32,8 @@
 
                     <td class="text-center">
                         <a href="{{route('ticket.edit',['ticket'=>$ticket])}}" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
-                        <a href="{{route('ticket.delete',['ticket'=>$ticket])}}" class="btn btn-danger"><i class="fa fa-pencil"></i> DELETE</a>
+                        <a href="{{route('ticket.delete',['ticket'=>$ticket])}}" class="btn btn-danger"><i class="fa fa-trash-o"></i> DELETE</a>
+                        <a href="{{route('message.index')}}" class="btn btn-success" onclick="openMessage(this);return false"><i CLASS="fa fa-eye"></i> SHOW</a>
                     </td>
                 </tr>
 
