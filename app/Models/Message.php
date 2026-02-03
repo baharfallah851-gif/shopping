@@ -6,5 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    //
+    protected $guarded = ['created_at','updated_at'];
+
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

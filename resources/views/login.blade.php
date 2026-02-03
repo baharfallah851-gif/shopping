@@ -3,12 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('bootstrap.min.css')}}">
+    <link rel="icon" href="{{asset('build/images/my_image.ico')}}" type="image/ico"/>
+    <title>SHOPPING MALL | BAHAR </title>
 
     <style>
         html, body {
             height: 100%;
-            background-image: url('/image.jpg');
+            background-image: url("{{asset('/image.jpg')}}");
             background-size: cover;
 
         }
@@ -49,6 +51,7 @@
                     remember me
                 </label>
             </div>
+
             <div class="clearfix"></div>
             <button class="btn btn-round btn-block" type="submit">login</button>
         </form>

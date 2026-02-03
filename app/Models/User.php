@@ -49,4 +49,14 @@ class User extends Authenticatable
     public function province(){
         return $this->belongsTo(Province::class);
     }
+
+    public function solver()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

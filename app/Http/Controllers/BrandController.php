@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\saveBrandRequest;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class BrandController extends Controller
         return view('brand.add');
     }
 
-    public function save(Request $request){
+    public function save(saveBrandRequest $request){
         Brand::query()->create([
             'title' => $request->get('title'),
             ]);
@@ -27,7 +28,7 @@ class BrandController extends Controller
         return view('brand.update',compact('brand'));
     }
 
-     public function update(Request $request, Brand $brand){
+     public function update(saveBrandRequest $request, Brand $brand){
         $brand->title = $request->get('title');
         $brand->update();
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\saveAddressRequest;
 use App\Models\Address;
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -11,15 +12,18 @@ class AddressController extends Controller
 
     public function add(Customer $customer)
     {
-       return view('address.add', compact('customer'));
+        return view('address.add', compact('customer'));
     }
-    public function index(Customer $customer){
+
+    public function index(Customer $customer)
+    {
         $addresses = $customer->addresses;
         return view('address.index', compact('addresses', 'customer'));
     }
 
 
-    public function save(Request $request, Customer $customer){
+    public function save(Request $request, Customer $customer)
+    {
         Address::create([
             'customer_id' => $customer->id,
             'address' => $request->get('address'),
@@ -32,12 +36,13 @@ class AddressController extends Controller
         ];
     }
 
-    public function edit(Request $request , Customer $customer, Address $address){
+    public function edit(Request $request, Customer $customer, Address $address)
+    {
         return view('address.update', compact('request', 'address', 'customer'));
     }
 
-    public function update(Request $request , Address $address){
-        $address->customer_id = $request->get('customer_id');
+    public function update(Request $request, Address $address)
+    {
         $address->address = $request->get('address');
         $address->postal_code = $request->get('postal_code');
         $address->unit = $request->get('unit');
@@ -49,7 +54,8 @@ class AddressController extends Controller
         ];
     }
 
-    public function delete(Address $address){
+    public function delete(Address $address)
+    {
         $address->delete();
         return [
             'success' => true,

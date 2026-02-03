@@ -6,10 +6,10 @@
     <table class="table table-bordered">
         <thead>
         <tr>
+            <th class="text-center">title</th>
             <th class="text-center">address</th>
             <th class="text-center">postal code</th>
             <th class="text-center">unit</th>
-            <th class="text-center">title</th>
 
             <th class="text-center">option</th>
         </tr>
@@ -18,10 +18,10 @@
         @foreach($addresses as $address)
             <tbody>
             <tr>
+                <td class="text-center">{{$address->title}}</td>
                 <td class="text-center">{{$address->address}}</td>
                 <td class="text-center">{{$address->postal_code}}</td>
                 <td class="text-center">{{$address->unit}}</td>
-                <td class="text-center">{{$address->title}}</td>
 
                 <td class="text-center">
                     <a href="{{Route('address.edit',['customer' => $customer,'address'=>$address])}}" onclick="showAddress(this);return false" class="btn btn-info"><i class="fa fa-pencil"></i> UPDATE</a>
@@ -116,7 +116,7 @@
             url: $(el).attr('href'),
             method: 'DELETE',
             data: {
-                _token: '{{csrf_token()}}'
+                _token: '{{csrf_token()}}'          // = csrf
             },
             success: function (result) {
                 $.ajax({

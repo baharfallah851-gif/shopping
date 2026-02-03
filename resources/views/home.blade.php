@@ -20,6 +20,7 @@
                 <a class="btn btn-dark" type="button" href="{{Route('ticket.add')}}">ADD TICKET</a><br><br>
                 <a class="btn btn-info" type="button" href="{{Route('type.add')}}">ADD TYPE</a><br><br>
                 <a class="btn btn-dark" type="button" href="{{Route('category.add')}}">ADD CATEGORY</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('task.add')}}">ADD TASK</a><br><br>
             </th>
             <th class="text-center">
                 <a class="btn btn-dark" type="button" href="{{Route('customer.index')}}">show list customer</a><br><br>
@@ -29,6 +30,7 @@
                 <a class="btn btn-dark" type="button" href="{{Route('ticket.index')}}">show list TICKET</a><br><br>
                 <a class="btn btn-info" type="button" href="{{Route('type.index')}}">show list TYPE</a><br><br>
                 <a class="btn btn-dark" type="button" href="{{Route('category.index')}}">show list CATEGORY</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('task.index')}}">show list TASK</a><br><br>
             </th>
         </tr>
 
@@ -36,7 +38,7 @@
 
     <div class="container-fluid mt-3">
     </div>
-    <img class="img-container center-block" alt="Cinque Terre" width="304" height="236" src="file/my_image.jpg">
+    <img class="img-container center-block" alt="Cinque Terre" width="304" height="236" src="{{asset('file/my_image.jpg')}}">
     <h4 class="text-center">Product buying and selling site</h4>
 
     <meta charset="UTF-8">

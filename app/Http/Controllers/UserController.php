@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\saveUserRequest;
 use App\Models\city;
 use App\Models\Province;
 use App\Models\User;
@@ -19,7 +20,7 @@ class UserController extends Controller
         $cities = City::all();
         return view('user.add', compact('provinces' ,'cities'));
     }
-    public function save(Request $request){
+    public function save(saveUserRequest $request){
         try {
             User::create([
                 'name' => $request->get('name'),
@@ -52,7 +53,7 @@ class UserController extends Controller
         return view('user.update', compact('request', 'user','provinces','cities'));
     }
 
-    public function update(Request $request , user $user){
+    public function update(saveUserRequest $request , user $user){
         $user->name = $request->get('name');
         $user->family = $request->get('family');
         $user->mobile = $request->get('mobile');

@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('ideas', function (Blueprint $table) {
             $table->id();
-            $table->integer('ticket_id');
-            $table->text('content')->nullable();
-            $table->integer('user_id')->nullable();
-            $table->integer('customer_id')->nullable();
+            $table->foreignId('task_id')->constrained('tasks');
+            $table->foreignId('owner_id')->constrained('users');
+            $table->text('comment');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('ideas');
     }
 };

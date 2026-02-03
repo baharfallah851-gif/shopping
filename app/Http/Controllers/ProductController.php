@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\saveProductRequest;
 use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -18,17 +19,20 @@ class ProductController extends Controller
         return view('product.add',compact('brands'));
     }
 
-    public function save(Request $request){
+    public function save(saveProductRequest $request)
+    {
+
         Product::create([
-            'title' => $request -> get('title'),
-            'description' => $request -> get('description'),
-            'slug' => $request -> get('slug'),
-            'image' => $request -> get('image'),
-            'brand_id' => $request -> get('brand_id'),
-            'unlimited_inventory' => $request -> get('unlimited_inventory',0),
-            'max_order' => $request -> get('max_order'),
-            'warning_border' => $request -> get('warning_border'),
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'slug' => $request->get('slug'),
+            'image' => $request->get('image'),
+            'brand_id' => $request->get('brand_id'),
+            'unlimited_inventory' => $request->get('unlimited_inventory', 0),
+            'max_order' => $request->get('max_order'),
+            'warning_border' => $request->get('warning_border'),
         ]);
+
         return redirect()->route('product.index');
     }
 
@@ -37,7 +41,7 @@ class ProductController extends Controller
         return view('product.update', compact('product','brands'));
     }
 
-    public function update(Request $request, Product $product){
+    public function update(saveProductRequest $request, Product $product){
         $product ->title = $request-> get('title');
         $product ->description = $request-> get('description');
         $product ->slug = $request-> get('slug');

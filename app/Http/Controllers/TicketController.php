@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\saveTicketRequest;
 use App\Models\Category;
 use App\Models\Ticket;
 use App\Models\Type;
@@ -21,7 +22,7 @@ class TicketController extends Controller
         return view('ticket.add', compact('types','categories'));
     }
 
-    public function save(Request $request){
+    public function save(saveTicketRequest $request){
         Ticket::create([
             'title' => $request->get('title'),
             'type_id' => $request->get('type_id'),
@@ -41,7 +42,7 @@ class TicketController extends Controller
         return view('ticket.update', compact('ticket','types','categories'));
     }
 
-    public function update(Request $request, Ticket $ticket){
+    public function update(saveTicketRequest $request, Ticket $ticket){
        $ticket -> title = $request->get('title');
        $ticket -> type_id = $request->get('type_id');
        $ticket -> category_id = $request->get('category_id');

@@ -60,21 +60,23 @@
                         <ul class="nav side-menu">
                             <li class=""><a><i class="fa fa-home"></i> HOME <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none;">
-                                    <li><a href="{{route('customer.index')}}"><i class="fa fa-group"></i> CUSTOMER <span
+                                    <li><a href="{{route('customer.index')}}"><i class="fa fa-group"></i> CUSTOMERS <span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('user.index')}}"><i class="fa fa-user"></i> USER <span
+                                    <li><a href="{{route('user.index')}}"><i class="fa fa-user"></i> USERS <span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('product.index')}}"><i class="fa fa-archive"></i>PRODUCT<span
+                                    <li><a href="{{route('product.index')}}"><i class="fa fa-archive"></i>PRODUCTS<span
                                                 class="fa fa-chevron"></span></a></li>
                                     {{--<li><a href="{{route('address.index')}}"><i class="fa fa-address-card"></i> ADDRESS <span
                                                 class="fa fa-chevron"></span></a></li>--}}
-                                    <li><a href="{{route('brand.index')}}"><i class="fa fa-braille"></i> BRAND <span
+                                    <li><a href="{{route('brand.index')}}"><i class="fa fa-braille"></i> BRANDS <span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('ticket.index')}}"><i class="fa fa-tags"></i> TICKET <span
+                                    <li><a href="{{route('ticket.index')}}"><i class="fa fa-tags"></i> TICKETS <span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('type.index')}}"><i class="fa fa-opera"></i> TYPE <span
+                                    <li><a href="{{route('type.index')}}"><i class="fa fa-opera"></i> TYPES <span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('category.index')}}"><i class="fa fa-plus-square-o"></i> CATEGORY <span
+                                    <li><a href="{{route('category.index')}}"><i class="fa fa-plus-square-o"></i> CATEGORIES <span
+                                                class="fa fa-chevron"></span></a></li>
+                                    <li><a href="{{route('task.index')}}"><i class="fa fa-tasks"></i> TASKS <span
                                                 class="fa fa-chevron"></span></a></li>
                                 </ul>
                             </li>
@@ -118,15 +120,14 @@
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:;"> نمایه</a></li>
+                                <li><a href="{{route('home')}}"><i class="fa fa-home pull-right"></i> HOME</a></li>
                                 <li>
                                     <a href="javascript:;">
                                         <span class="badge bg-red pull-right">50%</span>
                                         <span>تنظیمات</span>
                                     </a>
                                 </li>
-                                <li><a href="javascript:;">کمک</a></li>
-                                <li><a href="{{route('home')}}"><i class="fa fa-sign-out pull-right"></i> HOME</a></li>
+                                <li><a href="{{asset('login')}}"><i class="fa fa-sign-out pull-right"></i>LOG OUT</a></li>
                             </ul>
                         </li>
                     </ul>
