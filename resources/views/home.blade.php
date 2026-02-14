@@ -1,36 +1,36 @@
 @extends('layout')
 @section('content')
     <div class="">
-        <h1 class="text-center shadow p-3 mb-2 bg-white ">💕STORE💕</h1>
+        <h1 class="text-center shadow p-5 mb-2 bg-white" style="margin-right: -100px">💕@lang('STORE')💕</h1>
     </div>
 
 
 
     <table class="table table-bordered">
         <tr class="text-center">
-            <td><label>ADD</label></td>
-            <td><label>LIST</label></td>
+            <td><label>@lang('ADD')</label></td>
+            <td><label>@lang('LIST')</label></td>
         </tr>
         <tr class="text-center">
             <th class="text-center">
-                <a class="btn btn-dark" type="button" href="{{Route('customer.add')}}">ADD CUSTOMER</a><br><br>
-                <a class="btn btn-info" type="button" href="{{Route('user.add')}}">ADD USER</a><br><br>
-                <a class="btn btn-dark" type="button" href="{{Route('product.add')}}">ADD PRODUCT</a><br><br>
-                <a class="btn btn-info" type="button" href="{{Route('brand.add')}}">ADD BRAND</a><br><br>
-                <a class="btn btn-dark" type="button" href="{{Route('ticket.add')}}">ADD TICKET</a><br><br>
-                <a class="btn btn-info" type="button" href="{{Route('type.add')}}">ADD TYPE</a><br><br>
-                <a class="btn btn-dark" type="button" href="{{Route('category.add')}}">ADD CATEGORY</a><br><br>
-                <a class="btn btn-info" type="button" href="{{Route('task.add')}}">ADD TASK</a><br><br>
+                <a class="btn btn-dark" type="button" href="{{Route('customer.add')}}">@lang('ADD CUSTOMER')</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('user.add')}}">@lang('ADD USER')</a><br><br>
+                <a class="btn btn-dark" type="button" href="{{Route('product.add')}}">@lang('ADD PRODUCT')</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('brand.add')}}">@lang('ADD BRAND')</a><br><br>
+                <a class="btn btn-dark" type="button" href="{{Route('ticket.add')}}">@lang('ADD TICKET')</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('type.add')}}">@lang('ADD tickets TYPE')</a><br><br>
+                <a class="btn btn-dark" type="button" href="{{Route('category.add')}}">@lang('ADD tickets CATEGORY')</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('task.add')}}">@lang('ADD TASK')</a><br><br>
             </th>
             <th class="text-center">
-                <a class="btn btn-dark" type="button" href="{{Route('customer.index')}}">show list customer</a><br><br>
-                <a class="btn btn-info" type="button" href="{{Route('user.index')}}">show list user</a><br><br>
-                <a class="btn btn-dark" type="button" href="{{Route('product.index')}}">show list product</a><br><br>
-                <a class="btn btn-info" type="button" href="{{Route('brand.index')}}">show list BRAND</a><br><br>
-                <a class="btn btn-dark" type="button" href="{{Route('ticket.index')}}">show list TICKET</a><br><br>
-                <a class="btn btn-info" type="button" href="{{Route('type.index')}}">show list TYPE</a><br><br>
-                <a class="btn btn-dark" type="button" href="{{Route('category.index')}}">show list CATEGORY</a><br><br>
-                <a class="btn btn-info" type="button" href="{{Route('task.index')}}">show list TASK</a><br><br>
+                <a class="btn btn-dark" type="button" href="{{Route('customer.index')}}">@lang('list customers')</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('user.index')}}">@lang('list users')</a><br><br>
+                <a class="btn btn-dark" type="button" href="{{Route('product.index')}}">@lang('list products')</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('brand.index')}}">@lang('list brand')</a><br><br>
+                <a class="btn btn-dark" type="button" href="{{Route('ticket.index')}}">@lang('list tickets')</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('type.index')}}">@lang('list tickets types')</a><br><br>
+                <a class="btn btn-dark" type="button" href="{{Route('category.index')}}">@lang('list tickets categories')</a><br><br>
+                <a class="btn btn-info" type="button" href="{{Route('task.index')}}">@lang('list tasks')</a><br><br>
             </th>
         </tr>
 

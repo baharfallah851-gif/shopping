@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(){
-        $users = User::all();
+        $users = User::orderBy('id')->paginate(50);
         return view('user.index', compact('users'));
     }
 

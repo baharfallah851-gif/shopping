@@ -33,27 +33,26 @@
     <div class="login-wrapper">
         <form id="login_Form" class="login-box" method="post" action="{{ route('login.save') }}">
             @csrf
-            <h1 class="text-center">Login</h1>
+            <h1 class="text-center">@lang('Login')</h1>
 
             <div class="form-group">
-                <label>username</label>
+                <label>@lang('username')</label>
                 <input type="text" name="username" class="form-control text-center" required>
             </div>
             <div class="clearfix"></div>
             <div class="form-group">
-                <label class="input-group-text" >password</label>
+                <label class="input-group-text" >@lang('password')</label>
                 <input type="password" name="password" class="form-control text-center" required>
             </div>
-            <div class="clearfix"></div>
             <div class="form-group">
-                <label>
-                    <input type="checkbox" name="remember" class="form-check-input" value="1">
-                    remember me
+                <label class="inline-flex items-center">
+                    <input type="checkbox" name="remember" class="rounded text-indigo-600">
+                    <span class="ml-2 text-sm">@lang('Remember Me')</span>
                 </label>
             </div>
 
             <div class="clearfix"></div>
-            <button class="btn btn-round btn-block" type="submit">login</button>
+            <button class="btn btn-round btn-block" type="submit">@lang('Login')</button>
         </form>
     </div>
 <script>

@@ -34,7 +34,7 @@
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
                     <a href="{{route('home')}}" class="site_title"><i class="fa fa-paw"></i>
-                        <span>!MY STOR</span></a>
+                        <span>MY STOR</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -44,11 +44,10 @@
                         <img src="{{asset('build/images/my_image.ico')}}" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                        <span> welcome</span>
-                        <h2>STORE</h2>
+                        <span> @lang('welcome') </span>
+                        <h2>@lang('STORE')</h2>
                     </div>
                 </div>
-                <
                 <!-- /menu profile quick info -->
 
                 <br/>
@@ -56,30 +55,33 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <h3>ALL</h3>
+                        <h3>@lang('ALL')</h3>
                         <ul class="nav side-menu">
-                            <li class=""><a><i class="fa fa-home"></i> HOME <span class="fa fa-chevron-down"></span></a>
+                            <li class=""><a><i class="fa fa-home"></i> @lang('HOME') <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none;">
-                                    <li><a href="{{route('customer.index')}}"><i class="fa fa-group"></i> CUSTOMERS <span
+                                    <li><a href="{{route('customer.index')}}"><i class="fa fa-group"></i> @lang('CUSTOMERS') <span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('user.index')}}"><i class="fa fa-user"></i> USERS <span
+                                    <li><a href="{{route('user.index')}}"><i class="fa fa-user"></i> @lang('USERS') <span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('product.index')}}"><i class="fa fa-archive"></i>PRODUCTS<span
+                                    <li><a href="{{route('product.index')}}"><i class="fa fa-archive"></i>@lang('PRODUCTS')<span
                                                 class="fa fa-chevron"></span></a></li>
                                     {{--<li><a href="{{route('address.index')}}"><i class="fa fa-address-card"></i> ADDRESS <span
                                                 class="fa fa-chevron"></span></a></li>--}}
-                                    <li><a href="{{route('brand.index')}}"><i class="fa fa-braille"></i> BRANDS <span
+                                    <li><a href="{{route('brand.index')}}"><i class="fa fa-braille"></i> @lang('BRANDS') <span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('ticket.index')}}"><i class="fa fa-tags"></i> TICKETS <span
+                                </ul>
+                            <li class=""><a><i class="fa fa-ticket"></i> @lang('TICKET') <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none;">
+                                    <li><a href="{{route('ticket.index')}}"><i class="fa fa-tags"></i> @lang('TICKETS') <span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('type.index')}}"><i class="fa fa-opera"></i> TYPES <span
+                                    <li><a href="{{route('category.index')}}"><i class="fa fa-plus-square-o"></i> @lang('CATEGORY_TICKETS')<span
                                                 class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('category.index')}}"><i class="fa fa-plus-square-o"></i> CATEGORIES <span
-                                                class="fa fa-chevron"></span></a></li>
-                                    <li><a href="{{route('task.index')}}"><i class="fa fa-tasks"></i> TASKS <span
+                                    <li><a href="{{route('type.index')}}"><i class="fa fa-opera"></i> @lang('TYPE_TICKETS') <span
                                                 class="fa fa-chevron"></span></a></li>
                                 </ul>
                             </li>
+                            <li><a href="{{route('task.index')}}"><i class="fa fa-tasks"></i> @lang('TASKS') <span
+                                        class="fa fa-chevron"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -120,14 +122,14 @@
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="{{route('home')}}"><i class="fa fa-home pull-right"></i> HOME</a></li>
+                                <li><a href="{{route('home')}}"><i class="fa fa-home pull-right"></i> @lang('HOME')</a></li>
                                 <li>
                                     <a href="javascript:;">
                                         <span class="badge bg-red pull-right">50%</span>
                                         <span>تنظیمات</span>
                                     </a>
                                 </li>
-                                <li><a href="{{asset('login')}}"><i class="fa fa-sign-out pull-right"></i>LOG OUT</a></li>
+                                <li><a href="{{asset('logout')}}"><i class="fa fa-sign-out pull-right"></i>@lang('LOG OUT')</a></li>
                             </ul>
                         </li>
                     </ul>
