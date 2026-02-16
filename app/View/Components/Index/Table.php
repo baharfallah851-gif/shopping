@@ -15,12 +15,16 @@ class Table extends Component
     public array $headers;
     public iterable $rows;
     public array $fields;
+    public $param;
+    public $modal;
 
-    public function __construct($headers, $rows, $fields)
+    public function __construct($headers, $rows, $fields, $param, $modal)
     {
         $this->headers = $headers;
         $this->rows    = $rows;
         $this->fields  = $fields;
+        $this->param   = $param;
+        $this->modal   = $modal;
     }
 
     /**

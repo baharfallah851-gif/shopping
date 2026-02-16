@@ -19,20 +19,20 @@ class saveUserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            'name' => 'required|max:255',
-            'family' => 'required|max:255',
-            'mobile' => 'required|min:9|max:11',
-            'birth_date' => 'required',
-            'national_code' => 'required',
-            'job' => 'required',
-            'username' => 'required',
-            'password' => 'required',
-            'email' => 'required|email',
-            'lat' => 'required',
-            'lan' => 'required',
-        ];
-    }
+//    public function rules(): array
+//    {
+//        return [
+//            'name' => 'required|max:255',
+//            'family' => 'required|max:255',
+//            'mobile' => 'required|min:9|max:11',
+//            'birth_date' => 'required',
+//            'national_code' => 'required',
+//            'job' => 'required',
+//            'username' => 'required',
+//            'password' => 'required',
+//            'email' => 'required|email',
+//            'lat' => 'required',
+//            'lan' => 'required',
+//        ];
+//    }
 }

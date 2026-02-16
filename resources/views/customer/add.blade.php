@@ -5,27 +5,18 @@
         @csrf
         <div class="row">
             <x-Forms.Input type="text" placeholder="Enter Name" name="name" label="Name" />
-            <x-Forms.Input type="text" placeholder="Enter Family" name="name" label="Family"/>
+            <x-Forms.Input type="text" placeholder="Enter Family" name="family" label="Family"/>
             <x-Forms.Input type="text" placeholder="Enter Mobile" name="mobile" label="Mobile"/>
-        </div>
-        <div class="row">
             <x-Forms.Select type="text" name="gender" label="Gender" :values="['man', 'woman']"/>
             <x-Forms.Input type="date" name="birth_date" label="Birth Date"/>
             <x-Forms.Input type="text" name="national_code" placeholder="Enter National code" label="National Code"/>
-        </div>
-        <div class="row">
             <x-provinceCity/>
             <x-Forms.Input type="text" name="job" placeholder="Enter job" label="job"/>
-        </div>
-        <div class="row">
             <x-Forms.Input type="text" name="username" placeholder="Enter username" label="Username"/>
             <x-Forms.Input type="password" name="password" placeholder="Enter password" label="Password"/>
-        </div>
-        <div class="row">
             <x-Forms.Input type="text" name="lat" placeholder="Enter lat" label="Lat"/>
             <x-Forms.Input type="text" name="lan" placeholder="Enter lan" label="Lan"/>
         </div>
-        <br>
         <x-Address/>
         <x-Forms.Button class="btn btn-primary" button="Add Customer"/>
     </form>

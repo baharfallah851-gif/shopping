@@ -19,10 +19,10 @@ class saveIdeaRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            'comment' => 'required|min:1,max:255',
-        ];
-    }
+//    public function rules(): array
+//    {
+//        return [
+//            'comment' => 'required|min:1,max:255',
+//        ];
+//    }
 }

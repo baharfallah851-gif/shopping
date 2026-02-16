@@ -17,6 +17,8 @@
         'job', 'username', 'lat', 'lan'
     ]"
         :rows="$customers"
+        :param="'customer'"
+        :modal="'address'"
     />
 
 

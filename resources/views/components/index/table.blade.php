@@ -17,7 +17,9 @@
                 </td>
             @endforeach
                 <td>
-                    <x-index.a-customer :customer="$row" />
+                    <x-Url :href="route($param.'.edit',[$param=>$row])" class="btn btn-info" NameClass="fa fa-pencil" name="UPDATE"/>
+                    <x-Url :href="route($param.'.delete',[$param=>$row])" class="btn btn-danger" NameClass="fa fa-trash-o" name="DELETE"/>
+                    <x-Url :href="route($modal.'.index',[$param=>$row])" class="btn btn-success" onclick="openModel(this);return false" NameClass="fa fa-plus" name="ADDRESS"/>
                 </td>
         </tr>
     @endforeach

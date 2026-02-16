@@ -14,7 +14,7 @@ Route::post('login', [\App\Http\Controllers\LoginController::class, 'login'])->n
 //logout
 Route::get('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
-
+//⭐
 Route::group(['middleware' => 'auth'], function () {
 
 //home
@@ -124,3 +124,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('message/delete/{message}', [\App\Http\Controllers\MessageController::class, 'delete'])->name('message.delete');
 
 });
+
+//
+//Route::get('customer/login', [\App\Http\Controllers\CustomerLoginController::class, 'showLoginForm'])->name('customer.login');
+//Route::post('customer/login', [\App\Http\Controllers\CustomerLoginController::class, 'login'])->name('customer.login.save');
+//Route::post('customer/logout', [\App\Http\Controllers\CustomerLoginController::class, 'logout'])->name('customer.logout');
+//
+//⭐
+//Route::group(['middleware' => 'auth:customer'], function () {
+//
+//});
+
