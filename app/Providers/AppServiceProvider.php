@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
-use App\View\Components\Index\ACustomer;
 use App\View\Components\Index\Table;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Sanctum\PersonalAccessToken;
+use Laravel\Sanctum\Sanctum;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,8 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::useBootstrapFive();
-        Blade::component('index.table', Table::class);
-        Blade::component('index.a-customer', ACustomer::class);
+        Paginator::useBootstrapFive(); // for page
+
+        Blade::component('index.table', Table::class);              //for component
+
+        Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);       //for api
+
     }
 }
