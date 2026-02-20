@@ -22,8 +22,8 @@ class User extends Authenticatable
     protected $guarded = [];
 
     protected $fillable = [
-        'username',
-        'password',
+        'name','family','mobile','gender','birth_date','national_code',
+        'province_id','city_id','job','username','password','email','lat','lan'
     ];
     /**
      * The attributes that should be hidden for serialization.
