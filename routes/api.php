@@ -20,15 +20,32 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
 //customer
-    Route::post('customer/save', [\App\Http\Controllers\Api\CustomerController::class, 'save']);
-    Route::get('customer', [\App\Http\Controllers\Api\CustomerController::class, 'index']);
+    Route::middleware('auth:sanctum')->prefix('customer')->controller(\App\Http\Controllers\Api\CustomerController::class)->group(function () {
+        Route::post('/save', 'save');
+        Route::get('/', 'index');
 
-    Route::get('customer/edit/{customer}', [\App\Http\Controllers\Api\CustomerController::class, 'edit']);
-    Route::post('customer/update/{customer}', [\App\Http\Controllers\Api\CustomerController::class, 'update']);
-    Route::delete('customer/delete/{customer}', [\App\Http\Controllers\Api\CustomerController::class, 'delete']);
-
+        Route::get('/edit/{customer}', 'edit');
+        Route::post('/update/{customer}', 'update');
+        Route::delete('/delete/{customer}', 'delete');
+    });
 
 });
+//user resource
+Route::middleware('auth:sanctum')->get('/users', [\App\Http\Controllers\Api\UserController::class, 'index']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Route::post('/login', function (Request $request) {            //postman
 //    $request->validate([
 //        'username' => 'required|string',

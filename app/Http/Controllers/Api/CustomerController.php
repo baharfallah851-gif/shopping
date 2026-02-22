@@ -15,14 +15,14 @@ class CustomerController extends Controller
 
     public function index()
     {
-        $customers = Customer::orderBy('id')->paginate(50);
+        $customers = Customer::query()->orderBy('id')->paginate(50);
         return ['success' => true, 'data' => $customers];
     }
 
     public function save(saveCustomerRequest $request)
     {
 
-        $customer = Customer::create([
+        $customer = Customer::query()->create([
             'name' => $request->get('name'),
             'family' => $request->get('family'),
             'mobile' => $request->get('mobile'),
